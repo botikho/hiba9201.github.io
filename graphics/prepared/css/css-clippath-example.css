@@ -1,0 +1,40 @@
+#css-clipping-example .cont {
+    position: relative;
+    width: max-content;
+
+    border-radius: 20px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#css-clipping-example .background {
+    width: 900px;
+    height: auto;
+    border-radius: 20px;
+}
+
+#css-clipping-example .foreground {
+    width: 900px;
+    height: auto;
+    border-radius: 20px;
+    filter: blur(20px);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    clip-path: inset(0 0 0 0);
+}
+
+#css-clipping-example .resizer {
+    height: 15%;
+    width: 20px;
+    border-radius: 20px;
+    background-color: #FCCD00;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    cursor: col-resize;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}

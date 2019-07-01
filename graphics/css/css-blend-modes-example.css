@@ -1,0 +1,19 @@
+#css-blend-modes-example .cmy {
+	background: url(../pictures/cmy.jpg) top left,
+	url(../pictures/cmy.jpg) center center,
+	url(../pictures/cmy.jpg) bottom right;
+	height: 150px;
+	margin: 6.5em auto;
+	width: 603px;
+	background-blend-mode: multiply;
+	background-color: white;
+    background-size: 201px 450px;
+	background-repeat: repeat-y;
+	transition: all .25s;
+	border-radius: .1em;
+	transform: scale(2);
+}
+
+#css-blend-modes-example .cmy:hover {
+	background-position: top center, center center, bottom center;
+}

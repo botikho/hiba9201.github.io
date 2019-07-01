@@ -1,0 +1,115 @@
+.css-feature {
+	display: inline-block;
+	margin: 3% 4% 3% 1%;
+	width: 20%;
+	height: 20%;
+}
+
+#multiple-borders {
+	background: yellowgreen;
+	box-shadow: 0 0 0 .5em #C696E2,
+	0 0 0 .75em #AECCDA,
+	0 .1em .25em .75em rgba(0,0,0,.6);
+    border-radius: 20px;
+}
+
+#triangle {
+    position: relative;
+}
+
+#triangle > div {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 180px solid transparent;
+    border-top-color: #C696E2;
+    border-bottom-width: 0;
+}
+
+#triangle > div::before {
+    content: '';
+    position: absolute;
+    top: -183px;
+    left: -180px;
+    width: 0;
+    height: 0;
+    border: 180px solid transparent;
+    transform: scale(0.85);
+    border-top-color: #AECCDA;
+    border-bottom-width: 0;
+}
+
+#inner-rounding {
+	outline: .6em solid #655;
+    box-shadow: 0 0 0 .5em tan;
+	border-radius: .8em;
+	padding: 1em;
+	background: tan;
+}
+
+#horizontal-stripes {
+	background: linear-gradient(#BCE400 50%, #AECCDA 0);
+	background-size: 100% 35px;
+    border-radius: 20px;
+}
+
+#vertical-stripes {
+    background: linear-gradient(to right, #AECCDA 50%, #FC401D 0);
+    background-size: 35px 100%;
+    border-radius: 20px;
+}
+
+#polka-dot {
+	background-color: #BCE400;
+	background-image: radial-gradient(#C696E2 32%, transparent 0),
+                      radial-gradient(#C696E2 32%, transparent 0);
+	background-size: 60px 60px;
+	background-position: 12px 12px, 43px 43px;
+    border-radius: 20px;
+}
+
+#pie {
+	display: inline-block;
+	position: relative;
+	width: 10%;
+}
+
+#pie div {
+	position: absolute;
+	width: 100%;
+	padding-top: 100%;
+	border-radius: 50%;
+    background-color: #BCE400;
+	background-image: linear-gradient(to bottom, #BCE400 50%, #C696E2 0);
+}
+
+#pie div::before {
+	content: '';
+	position: absolute;
+	top: 0; left: 50%;
+	width: 50%; height: 100%;
+	border-radius: 0 100% 100% 0 / 50%;
+	background-color: #AECCDA;
+	transform-origin: left;
+}
+
+#bubble {
+	position: relative;
+	box-sizing: border-box;
+	background: #FC401D;
+	-webkit-filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));
+	filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));
+	border-radius: .3em;
+}
+
+#bubble::before {
+	content: '';
+	position: absolute;
+	top: 1em;
+	right: -.7em;
+	width: 0;
+	height: 0;
+	border: 1em solid transparent;
+	border-left-color: #FC401D;
+	border-right-width: 0;
+}

@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Мультимедиа. Аудио. Синтез и разпознавание речи.</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="themes/yandex2/styles/screen-16x9.css">
+    <script src="examples/vendors/jquery.min.js"></script>
+</head>
+<body class="shower list">
+
+<header class="caption">
+    <h1>Мультимедиа. Аудио. Синтез и распознавание речи.</h1>
+    <p>Пелевина Анастасия, <a href="https://ya.ru/" target="_blank">Яндекс</a></p>
+</header>
+
+<section class="slide cover main">
+    <div>
+        <h2>Мультимедиа. Аудио. Синтез и распознавание речи.</h2>
+        <div class="authors">
+            <p class="name">
+                Анастасия Пелевина
+            </p>
+            <p class="position">
+                Разработчик интерфейсов
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="slide toc" id="plan">
+    <div>
+        <h2>Обсудим</h2>
+        <div class="toc-wrapper">
+            <ul>
+                <li>
+                    <p class="toc-number">01</p>
+                    <p class="toc-text">HTML5 Audio</p>
+                </li>
+                <li>
+                    <p class="toc-number">02</p>
+                    <p class="toc-text">Web Audio API</p>
+                </li>
+                <li>
+                    <p class="toc-number">03</p>
+                    <p class="toc-text">Web Speech API</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="slide cover second" id="history">
+    <div>
+        <h2>Аудио в браузере</h2>
+    </div>
+</section>
+
+
+<section class="slide" id="audio-history">
+    <div>
+        <h2>История</h2>
+        <ul class="timeline">
+            <li class="next"><p class="content">&lt;bgsound>, &lt;embed></p></li>
+            <li class="next"><p class="content">Плагины: Flash, Silverlight, QT</p></li>
+            <li class="next"><p class="content">&lt;audio></p></li>
+            <li class="next"><p class="content">Web Audio API</p></li>
+        </ul>
+        <div style="text-align:center; margin-top: 30px">
+            <img class="next" src="pictures/evolution.png" alt="">
+        </div>
+    </div>
+</section>
+
+<section class="slide cover third" id="html5-audio">
+    <div>
+        <h2>&lt;audio></h2>
+    </div>
+</section>
+
+<section class="slide" id="html5-audio-features">
+    <div>
+        <h2>Возможности</h2>
+        <ul>
+            <li>Аудио плеер</li>
+            <li>Однопоточное фоновое аудио</li>
+            <li>Аудио подсказки, капчи</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide cover full-image" id="html5-audio-supports">
+    <img src="pictures/caniuse/audio.png" alt="">
+</section>
+
+<section class="slide" id="html5-audio-check">
+    <div>
+        <h2>Проверка</h2>
+        <pre>
+			<code class="javascript">if (document.createElement('audio').canPlayType) {</code>
+			<code class="javascript">  // ...</code>
+			<code class="javascript">} else {</code>
+			<code class="javascript">  alert('&lt;audio> не поддерживается!');</code>
+			<code class="javascript">}</code>
+		</pre>
+    </div>
+</section>
+
+<section class="slide" id="html5-audio-examples">
+    <div>
+        <h2>Добавление на сайт</h2>
+        <pre>
+			<code class="html next">&lt;audio src="sound.mp3" autoplay>&lt;/audio></code>
+			<code class="html next">&lt;audio src="sound.mp3" autoplay loop>&lt;/audio></code>
+			<code class="html next">&lt;audio src="sound.mp3" controls>&lt;/audio></code>
+			<code class="html next">&lt;audio src="sound.mp3" controls preload="none">&lt;/audio></code>
+			<code class="html next">&lt;audio src="sound.mp3" controls preload="auto">&lt;/audio></code>
+			<code class="html next">&lt;audio src="sound.mp3" controls preload="metadata">&lt;/audio></code>
+			<span class="html next">
+				<code class="html">&lt;audio controls></code>
+				<code class="html">  &lt;source src="sound.ogg" type="audio/ogg"></code>
+				<code class="html">  &lt;source src="sound.mp3" type="audio/mp3"></code>
+				<code class="html">  &lt;a href="sound.mp3" download>Скачать!&lt;/a></code>
+				<code class="html">&lt;audio></code>
+			</span>
+		</pre>
+    </div>
+</section>
+
+<section class="slide" id="html5-audio-appearance">
+    <style>
+        #html5-audio-appearance img {
+            vertical-align: middle;
+        }
+
+        #html5-audio-appearance p {
+            vertical-align: middle;
+            display: inline;
+            margin: 0 0 0 20px;
+        }
+
+        #html5-audio-appearance ul > li::before {
+            display: none;
+        }
+
+        #html5-audio-appearance ul > li {
+            text-indent: -53px !important;
+        }
+    </style>
+
+    <div>
+        <h2>Внешний вид</h2>
+        <ul>
+            <li>
+                <img src="pictures/firefox-look.png" alt="">
+                <p>Firefox</p>
+            </li>
+            <li>
+                <img src="pictures/chrome-look.png" alt="">
+                <p>Chrome</p>
+            </li>
+            <li>
+                <img src="pictures/yabro-look.png" alt="" height="130">
+                <p>Yandex Browser</p>
+            </li>
+            <li>
+                <img src="pictures/safari-look.png" alt="">
+                <p>Safari</p>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="html5-audio-formats-supports">
+    <style>
+        #html5-audio-formats-supports img {
+            width: 100%;
+        }
+    </style>
+    <div>
+        <h2>Поддержка форматов/контейнеров</h2>
+        <img src="pictures/audio-formats-support-2.png" alt="">
+        <div class="extra-link">
+            <a href="https://en.wikipedia.org/wiki/HTML5_audio#cite_note-fn1-15">Supported audio coding formats (Wikipedia)</a>,
+            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Supported_media_formats">Media formats for HTML audio and video (MDN)</a>
+        </div>
+    </div>
+</section>
+
+<section class="slide cover full-image" id="html5-audio-mp3-supports">
+    <img src="pictures/caniuse/mp3.png" alt="">
+</section>
+
+<section class="slide" id="html5-audio-methods">
+    <div>
+        <h2>Методы</h2>
+        <pre>
+			<code class="html">&lt;audio src="sound.mp3" id="player" controls>&lt;/audio></code>
+			<code>  </code>
+			<code class="html">&lt;script></code>
+			<code class="javascript">  const player = document.getElementById('player');</code>
+			<code>  </code>
+			<code class="javascript">  player.play();</code>
+			<code class="javascript">  player.pause();</code>
+			<code class="javascript">  player.canPlayType('audio/mp3'); // 'probably', 'maybe', ''</code>
+			<code class="javascript">  player.src = 'new_sound.mp3';</code>
+			<code class="javascript">  player.load();</code>
+			<code class="html">&lt;/script></code>
+		</pre>
+    </div>
+</section>
+
+<section class="slide" id="html5-audio-properties">
+    <div>
+        <h2>Свойства</h2>
+        <ul>
+            <li class="next"><i>buffered</i>, <i>ended</i>, <i>muted</i>, <i>paused</i>, <i>played</i> ...</li>
+            <li class="next"><i>duration</i>, <i>audioTracks</i>, <i>readyState</i> ...</li>
+            <li class="next"><i>playbackRate</i>, <i>volume</i>, <i>currentTime</i> ...</li>
+        </ul>
+        <a class="extra-link" href="https://www.w3schools.com/tags/ref_av_dom.asp">HTML Audio Properties</a>
+    </div>
+</section>
+
+<section class="slide" id="html5-audio-events">
+    <div>
+        <h2>События</h2>
+        <ul>
+            <li class="next"><i>canplay</i>, <i>canplaythrough</i> ...</li>
+            <li class="next"><i>error</i>, <i>play</i>, <i>pause</i>, <i>ended</i> ...</li>
+            <li class="next"><i>volumechange</i>, <i>ratechange</i> ...</li>
+        </ul>
+        <a class="extra-link" href="https://www.w3schools.com/tags/ref_av_dom.asp">HTML Audio Events</a>
+    </div>
+</section>
+
+<section class="slide" id="html5-audio-ios-lmits">
+    <div>
+        <h2>Лимиты iOS</h2>
+        <ul>
+            <li class="next"><i>Autoplay</i>/<i>loading</i> только по действию пользователя</li>
+            <li class="next">Одно аудио в один момент времени</li>
+            <li class="next">Проигрывание одной композиции на неактивной вкладке/экране</li>
+        </ul>
+        <a
+            class="extra-link"
+            href="http://debuggerdotbreak.judahgabriel.com/2016/12/13/its-almost-2017-and-html5-audio-is-still-broken-on-ios/"
+            target="_blank"
+        >
+            It’s almost 2017, and HTML5 audio is still broken on iOS
+        </a>
+    </div>
+</section>
+
+<section class="slide cover fourth" id="web-audio-api">
+    <div>
+        <h2>Web Audio API</h2>
+    </div>
+</section>
+
+<section class="slide" id="web-audio-api-features">
+    <div>
+        <h2>Возможности</h2>
+        <ul>
+            <li>Объемный звук для игр</li>
+            <li>Приложения для обработки звука</li>
+            <li>Визуализация аудио</li>
+            <li>Аудио синтез</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide cover full-image" id="web-audio-api-supports">
+    <img src="pictures/caniuse/web-audio.png" alt="">
+</section>
+
+<section class="slide" id="web-audio-api-not-html5-audio">
+    <style>
+        #web-audio-api-not-html5-audio p {
+            text-align: center;
+        }
+
+        #web-audio-api-not-html5-audio img {
+            width: 37%;
+        }
+    </style>
+    <div>
+        <h2>Web Audio API</h2>
+        <ul>
+            <li>Не &lt;audio></li>
+            <li>Не надстройка над &lt;audio></li>
+        </ul>
+        <p>
+            <img src="pictures/api-ws-tag.png" alt="">
+        </p>
+        <a class="extra-link" href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API" target="_blank">MDN Web Audio API</a>
+    </div>
+</section>
+
+<section class="slide" id="web-audio-api-workflow">
+    <style>
+        #web-audio-api-workflow img {
+            width: 80%;
+        }
+    </style>
+    <div>
+        <h2>Web Audio API: Workflow</h2>
+        <img src="pictures/graph.svg" alt="">
+    </div>
+</section>
+
+<section class="slide" id="web-audio-api-context">
+    <div>
+        <h2>Web Audio API: Context</h2>
+        <pre>
+			<code class="javascript">const AudioContext = window.AudioContext || window.webkitAudioContext;</code>
+			<code> </code>
+			<code class="javascript">if (AudioContext) {</code>
+			<code class="javascript">  // ...</code>
+			<code class="javascript">} else {</code>
+			<code class="javascript">  alert('Ваш браузер не поддерживает Web Audio API');</code>
+			<code class="javascript">}</code>
+		</pre>
+    </div>
+</section>
+
+<section class="slide" id="web-audio-api-sources">
+    <style>
+        #web-audio-api-sources h3 {
+            margin-top: 80px;
+        }
+    </style>
+    <div>
+        <h2>Web Audio Sources</h2>
+        <h3>Возможные источники</h3>
+        <ul>
+            <li>Аудио буффер</li>
+            <li>&lt;audio>, &lt;video></li>
+            <li>Внешний аудио поток</li>
+        </ul>
+        <h3>Создание источника из &lt;audio></h3>
+        <pre>
+			<code class="javascript">const audioCtx = new AudioContext();</code>
+			<code class="javascript">const audioSourceElement = document.querySelector("audio");</code>
+			<code> </code>
+			<code class="javascript">const source = audioCtx.createMediaElementSource(audioSourceElement);</code>
+		</pre>
+    </div>
+</section>
+
+<section class="slide" id="web-audio-api-modules">
+    <div>
+        <h2>Web Audio Modules</h2>
+        <ul>
+            <li>Усилители</li>
+            <li>Линии задержки</li>
+            <li>Свертки</li>
+            <li>Фильтры</li>
+            <li>Анализаторы</li>
+            <li>Генераторы</li>
+            <li>"Летающие колонки"</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="web-audio-api-modules-gain">
+    <style>
+        #web-audio-api-modules-gain iframe {
+            width: 26%;
+            height: 25%;
+            transform: translate(-50%, 50%) scale(2);
+            position: relative;
+            left: 50%;
+        }
+    </style>
+    <div>
+        <h2>Web Audio Modules: <a href="https://webaudio.github.io/web-audio-api/#GainNode" target="_blank">Gain</a></h2>
+        <pre>
+			<code class="javascript">const gainNode = context.createGain();</code>
+			<code class="javascript">gainNode.gain.value = 0.5;</code>
+			<code class="javascript">source.connect(gainNode);</code>
+			<code class="javascript">gainNode.connect(destination);</code>
+		</pre>
+        <iframe src="examples/gain/index.html" frameborder="0"></iframe>
+    </div>
+</section>
+
+<section class="slide" id="web-audio-api-modules-gain-crossfade">
+    <style>
+        #web-audio-api-modules-gain-crossfade iframe {
+            width: 27%;
+            height: 39%;
+            transform: translate(-50%, 50%) scale(2);
+            position: relative;
+            left: 50%;
+        }
+    </style>
+    <div>
+        <h2>Web Audio Modules: <a href="https://webaudio.github.io/web-audio-api/#GainNode" target="_blank">Gain</a></h2>
+        <iframe src="examples/crossfade/index.html" frameborder="0"></iframe>
+    </div>
+</section>
+
+<section class="slide" id="web-audio-api-modules-delay">
+    <div>
+        <h2>Web Audio Modules: <a href="https://webaudio.github.io/web-audio-api/#DelayNode" target="_blank">Delay</a></h2>
+        <pre>
+			<code class="javascript">const delayNode = context.createDelay();</code>
+			<code class="javascript">delayNode.delayTime.value = 0.5;  // пол секунды</code>
+			<code class="javascript">source.connect(delayNode);</code>
+			<code class="javascript">delayNode.connect(destination);</code>
+		</pre>
+    </div>
+</section>
+
+<section class="slide" id="web-audio-api-echo">
+    <style>
+        #web-audio-api-echo img {
+            width: 60%;
+        }
+    </style>
+    <div>
+        <h2>Web Audio Modules: Gain + Delay</h2>
+        <img src="pictures/source-delay-gain-destination.svg" alt="">
+        <pre>
+			<code class="javascript">// Создаем контекст, источник и приемник</code>
+			<code class="javascript">const context = new AudioContext();</code>
+			<code class="javascript">const source = context.createBufferSource();</code>
+			<code class="javascript">source.buffer = await getBufferFromUrl(someUrl);</code>
+			<code class="javascript">const destination = context.destination;</code>
+		</pre>
+        <a class="extra-link" href="https://gist.github.com/shinnn/5584977">BufferLoader</a>
+    </div>
+</section>
+
+<section class="slide" id="web-audio-api-echo-2">
+    <style>
+        #web-audio-api-echo-2 img {
+            width: 60%;
+        }
+    </style>
+    <div>
+        <h2>Web Audio Modules: Gain + Delay</h2>
+        <img src="pictures/source-delay-gain-destination.svg" alt="">
+        <pre>
+			<code class="javascript">// Создаем модули и конфигурируем их</code>
+			<code class="javascript">const gainNode = context.createGain();</code>
+			<code class="javascript">const delayNode = context.createDelay();</code>
+			<code class="javascript">gainNode.gain.value = 0.5;</code>
+			<code class="javascript">delayNode.delayTime.value = 0.75;</code>
+		</pre>
+    </div>
+</section>
+
+<section class="slide" id="web-audio-api-echo-3">
+    <style>
+        #web-audio-api-echo-3 img {
+            width: 60%;
+        }
+    </style>
+    <div>
+        <h2>Web Audio Modules: Gain + Delay</h2>
+        <img src="pictures/source-delay-gain-destination.svg" alt="">
+        <pre>
+			<code class="javascript">// Описываем необходимую нам схему и воспроизводим</code>
+			<code class="javascript">source.connect(gainNode);</code>
+			<code class="javascript">gainNode.connect(delayNode);</code>
+			<code class="javascript">delayNode.connect(gainNode);</code>
+			<code class="javascript">gainNode.connect(destination);</code>
+			<code class="javascript">source.start(0);</code>
+		</pre>
+    </div>
+</section>
+
+<section class="slide" id="web-audio-api-echo-live">
+    <style>
+        #web-audio-api-echo-live button {
+            font-size: 30px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #web-audio-api-echo-live input {
+            line-height: 30px;
+            font-size: 30px;
+            padding: 10px 20px;
+            width: 5em;
+        }
+    </style>
+    <div>
+        <h2>Web Audio Modules: Gain + Delay</h2>
+        <ul>
+            <li>Голос</li>
+            <div class="simple">
+                <button class="start">Старт</button>
+                <button class="stop">Стоп</button>
+            </div>
+            <li>Голос с эхо</li>
+            <div class="echo">
+                <input class="gain-value" placeholder="Gain"/>
+                <input class="delay-value" placeholder="Delay"/>
+
+                <button class="start">Старт</button>
+                <button class="stop">Стоп</button>
+            </div>
+        </ul>
+        <script src="examples/echo.js"></script>
+        <a class="extra-link" href="http://webaudioplayground.appspot.com/" target="_blank">Web Audio Playground</a>
+    </div>
+</section>
+
+<section class="slide" id="web-audio-api-modules-convolution">
+    <style>
+        #web-audio-api-modules-convolution img {
+            width: 80%;
+        }
+    </style>
+    <div>
+        <h2>Web Audio Modules: <a href="https://webaudio.github.io/web-audio-api/#ConvolverNode" target="_blank">Convolution</a></h2>
+        <pre>
+			<code class="javascript">const convolverNode = context.createConvolver();</code>
+			<code class="javascript">const arraybuffer = await fetch("path/to/impulse-response.wav").arrayBuffer();</code>
+			<code class="javascript">convolverNode.buffer = await audioCtx.decodeAudioData(arraybuffer);</code>
+		</pre>
+        <img src="pictures/article-convolution.png" alt="">
+    </div>
+</section>
+
+<section class="slide" id="web-audio-api-modules-convolution-demo">
+    <div>
+        <h2>Web Audio Modules: <a href="https://webaudio.github.io/web-audio-api/#ConvolverNode" target="_blank">Convolution</a></h2>
+        <h3>Скачать готовые свертки</h3>
+        <ul>
+            <li><a href="https://www.audioease.com/altiverb/browse.php" target="_blank">Audioease</a></li>
+            <li><a href="https://freesound.org/search/?q=impulse+response&f=&s=score+desc&advanced=0&g=1" target="_blank">Freesound</a></li>
+            <li><a href="http://www.voxengo.com/impulses/" target="_blank">Voxengo</a></li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="web-audio-api-modules-filter">
+    <div>
+        <h2>Web Audio Modules: <a href="https://webaudio.github.io/web-audio-api/#BiquadFilterNode" target="_blank">Filter</a></h2>
+        <pre>
+			<code class="javascript">const filterNode = context.createBiquadFilter();</code>
+			<code class="javascript">filterNode.type = 'lowpass';</code>
+			<code class="javascript">filterNode.frequency.value = 1000;</code>
+			<code class="javascript">filterNode.Q.value = 1;</code>
+			<code class="javascript">filterNode.gain.value = 300;</code>
+		</pre>
+    </div>
+</section>
+
+<section class="slide" id="web-audio-api-modules-filter-example">
+    <style>
+        #web-audio-api-modules-filter-example iframe {
+            width: 47%;
+            height: 50%;
+            transform: translate(-50%, 34%) scale(1.9);
+            position: relative;
+            left: 50%;
+        }
+    </style>
+    <div>
+        <h2>Web Audio Modules: <a href="https://webaudio.github.io/web-audio-api/#GainNode" target="_blank">Filter</a></h2>
+        <iframe src="examples/filter/index.html" frameborder="0"></iframe>
+    </div>
+</section>
+
+<section class="slide cover full-image" id="web-audio-api-modules-filter-live">
+    <style>
+        #web-audio-api-modules-filter-live video {
+            min-width: 100%;
+            min-height: 100%;
+            height: 100%;
+        }
+        #web-audio-api-modules-filter-live div {
+            background-color: #fff;
+        }
+    </style>
+    <video src="pictures/yandex-music.mov" pip="false" loop></video>
+</section>
+
+<section class="slide" id="web-audio-api-modules-panner">
+    <style>
+        #web-audio-api-modules-panner img {
+            width: 60%;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+    <div>
+        <h2>Web Audio Modules: <a href="https://webaudio.github.io/web-audio-api/#PannerNode" target="_blank">Panner</a></h2>
+        <img src="pictures/3dwebaudioapi.jpg" alt="">
+    </div>
+</section>
+
+<section class="slide" id="web-audio-api-modules-panner-code">
+    <style>
+        #web-audio-api-modules-panner-code pre code {
+            font-size: 32px !important;
+            line-height: 50px !important;
+        }
+    </style>
+    <div>
+        <h2>Web Audio Modules: <a href="https://webaudio.github.io/web-audio-api/#the-pannernode-interface" target="_blank">Panner</a></h2>
+        <pre>
+			<code class="javascript">const pannerNode = context.createPanner();</code>
+			<code> </code>
+            <code class="javascript">pannerNode.positionX = pos.x;</code>
+            <code class="javascript">pannerNode.positionY = pos.y;</code>
+            <code class="javascript">pannerNode.positionZ = pos.z;</code>
+            <code class="javascript">pannerNode.orientationX = vec.x;</code>
+            <code class="javascript">pannerNode.orientationY = vec.y;</code>
+            <code class="javascript">pannerNode.orientationZ = vec.z;</code>
+			<code> </code>
+            <code class="javascript">context.listener.positionX = pos.x;</code>
+            <code class="javascript">context.listener.positionY = pos.y;</code>
+            <code class="javascript">context.listener.positionZ = pos.z;</code>
+            <code class="javascript">context.listener.forwardX = vec.x;</code>
+            <code class="javascript">context.listener.forwardY = vec.y;</code>
+            <code class="javascript">context.listener.forwardZ = vec.z;</code>
+		</pre>
+    </div>
+</section>
+
+<section class="slide" id="web-audio-api-modules-analyser">
+    <style>
+        #web-audio-api-modules-analyser iframe {
+            width: 96%;
+            height: 80%;
+            transform: translateX(-50%);
+            position: relative;
+            left: 50%;
+        }
+    </style>
+    <div>
+        <h2>Web Audio Modules: <a href="https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode" target="_blank">Analyser</a></h2>
+        <iframe src="./examples/analyzer/analyzer.html" frameborder="0"></iframe>
+        <a class="extra-link" href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API" target="_blank">Visualizations with Web Audio API</a>
+    </div>
+</section>
+
+<section class="slide" id="web-audio-api-destinations">
+    <div>
+        <h2>Web Audio Destinations</h2>
+        <ul>
+            <li>Стандартный аудиовыход</li>
+            <li>Аудиопоток</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="web-audio-api-demo">
+    <div>
+        <h2>Демо</h2>
+        <ul>
+            <li><a href="https://codepen.io/gregh/full/RKVNgB/" target="_blank">Игра на ксилофоне</a></li>
+            <li><a href="https://webaudiodemos.appspot.com/pitchdetect/index.html" target="_blank">Анализатор гитарных аккордов</a></li>
+            <li><a href="https://webaudiodemos.appspot.com/TouchPad/index.html" target="_blank">Touch Pad контроллер аудио</a></li>
+            <li><a href="https://webaudioapi.com/samples/spatialized/" target="_blank">Звук в пространстве</a></li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide cover fifth" id="speech-synthesis-api">
+    <div>
+        <h2>Speech Synthesis API</h2>
+    </div>
+</section>
+
+<section class="slide" id="speech-synthesis-api-reasons">
+    <div>
+        <h2><a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis" target="_blank">Speech Synthesis API</a></h2>
+        <ul>
+            <li>Чтение капчи</li>
+            <li>Чтение книг</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide cover full-image" id="speech-synthesis-api-supports">
+    <img src="pictures/caniuse/speech-synthesis-api.png" alt="">
+</section>
+
+<section class="slide" id="speech-synthesis-api-check">
+    <div>
+        <h2>Проверка</h2>
+        <pre>
+			<code class="javascript">if (window.speechSynthesis) {</code>
+			<code class="javascript">  // ...</code>
+			<code class="javascript">} else {</code>
+			<code class="javascript">  alert('Speech Synthesis API не поддерживается');</code>
+			<code class="javascript">}</code>
+		</pre>
+    </div>
+</section>
+
+<section class="slide" id="speech-synthesis-api-syntax">
+    <div>
+        <h2>Воспроизводим фразу</h2>
+        <pre>
+			<code class="javascript">// Создаем фразу и воспроизводим ее</code>
+			<code class="javascript">const msg = new SpeechSynthesisUtterance('Is Yandex the best?');</code>
+			<code class="javascript">window.speechSynthesis.speak(msg);</code>
+			<code class="javascript">// Меняем голос</code>
+			<code class="javascript">const voices = window.speechSynthesis.getVoices();</code>
+			<code class="javascript">msg.voice = voices[10];</code>
+			<code class="javascript">msg.rate = 1; // Скорость от 0 до 10</code>
+			<code class="javascript">msg.pitch = 2; // Высота от 0 до 2</code>
+			<code class="javascript">msg.text = 'Yes, of course';</code>
+			<code class="javascript">msg.lang = 'en-US';</code>
+		</pre>
+    </div>
+</section>
+
+<section class="slide" id="speech-synthesis-api-voice">
+    <div>
+        <h2>Speech Synthesis Voice</h2>
+        <pre>
+			<code class="javascript">SpeechSynthesisVoice {</code>
+			<code class="javascript">  voiceURI: "Milena",</code>
+			<code class="javascript">  name: "Milena",</code>
+			<code class="javascript">  lang: "ru-RU",</code>
+			<code class="javascript">  localService: true,</code>
+			<code class="javascript">  default: true</code>
+			<code class="javascript">}</code>
+		</pre>
+    </div>
+</section>
+
+<section class="slide" id="speech-synthesis-api-events">
+    <style>
+        #speech-synthesis-api-events code {
+            font-size: 32px !important;
+            line-height: initial !important;
+        }
+    </style>
+    <div>
+        <h2>Speech Synthesis Events</h2>
+        <ul>
+            <li><i>start</i>, <i>pause</i>, <i>resume</i>, <i>end</i>, <i>error</i></li>
+            <li><i>boundary</i> <code class="javascript">// Достижение границ слова или предложения</code></li>
+            <li><i>mark</i> <code class="javascript">// Достижение именованной метки в SSML разметке</code></li>
+        </ul>
+        <a class="extra-link" href="https://www.w3.org/TR/speech-synthesis11/" target="_blank">SSML</a>
+    </div>
+</section>
+
+<section class="slide" id="speech-synthesis-api-demo">
+    <div>
+        <h2>Speech Synthesis API</h2>
+        <ul>
+            <li><a href="https://codepen.io/matt-west/full/wGzuJ/" target="_blank">Демо разных голосов</a></li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide cover sixth" id="speech-recognition-api">
+    <div>
+        <h2>Speech Recognition API</h2>
+    </div>
+</section>
+
+<section class="slide cover full-image" id="speech-recognition-api-supports">
+    <img src="pictures/caniuse/speech-recognition-api.png" alt="">
+</section>
+
+<section class="slide" id="speech-recognition-api-reasons">
+    <div>
+        <h2><a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition" target="_blank">Speech Recognition API</a></h2>
+        <ul>
+            <li>Голосовой поиск</li>
+            <li>Голосовой набор</li>
+            <li>Голосовая навигация</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="speech-recognition-api-check">
+    <div>
+        <h2>Проверка</h2>
+        <pre>
+			<code class="javascript">const SpeechRecognition = </code>
+			<code class="javascript">	window.SpeechRecognition || window.webkitSpeechRecognition;</code>
+			<code class="javascript"> </code>
+			<code class="javascript">if (SpeechRecognition) {</code>
+			<code class="javascript">  // ...</code>
+			<code class="javascript">} else {</code>
+			<code class="javascript">  alert('Speech Recognition API не поддерживается');</code>
+			<code class="javascript">}</code>
+		</pre>
+    </div>
+</section>
+
+<section class="slide" id="speech-recognition-api-use">
+    <div>
+        <h2>Использование</h2>
+        <pre>
+			<code class="javascript">const recognition = new SpeechRecognition();</code>
+			<code class="javascript"> </code>
+			<code class="javascript">recognition.lang = 'ru-RU';</code>
+			<code class="javascript">recognition.continuous = false;</code>
+			<code class="javascript">recognition.interimResults = false;</code>
+			<code class="javascript">recognition.maxAlternatives = 1;</code>
+			<code class="javascript"> </code>
+			<code class="javascript">recognition.start();</code>
+			<code class="javascript">recognition.stop();</code>
+		</pre>
+    </div>
+</section>
+
+
+<section class="slide" id="speech-recognition-api-use-2">
+    <div>
+        <h2>Использование</h2>
+        <pre>
+			<code class="javascript">recognition.onstart = function() {  }</code>
+			<code class="javascript">recognition.onend = function() {  }</code>
+			<code class="javascript"> </code>
+			<code class="javascript">recognition.onerror = function(event) {</code>
+			<code class="javascript">	console.error(event);</code>
+			<code class="javascript">};</code>
+			<code class="javascript"> </code>
+			<code class="javascript">recognition.onresult = function(event) {</code>
+			<code class="javascript">	const result = event.results[0][0].transcript;</code>
+			<code class="javascript"> </code>
+			<code class="javascript">	//...</code>
+			<code class="javascript">}</code>
+		</pre>
+    </div>
+</section>
+
+
+<section class="slide" id="speech-recognition-events">
+    <div>
+        <h2>Speech Recognition Events</h2>
+        <ul>
+            <li><i>soundstart</i>, <i>soundend</i>, <i>speechstart</i>, <i>speechend</i></li>
+            <li><i>start</i>, <i>end</i>, <i>error</i>, <i>result</i>, <i>nomatch</i></li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="speech-recognition-api-demo-1">
+    <style>
+        #speech-recognition-api-demo-1 .result {
+            width: 500px;
+            height: 500px;
+            margin: 2em auto;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+
+        #speech-recognition-api-demo-1 .result_yandex {
+            background-image: url(pictures/yandex.svg);
+        }
+    </style>
+    <div>
+        <h2>Speech Recognition API</h2>
+        <ul>
+            <li>Кликни и пообщайся со скайнет</li>
+        </ul>
+        <script src="examples/recognition.js"></script>
+        <div class="result"></div>
+    </div>
+</section>
+
+<section class="slide" id="speech-recognition-api-demo">
+    <div>
+        <h2>Speech Recognition API</h2>
+        <ul>
+            <li><a href="https://www.google.com/intl/en/chrome/demos/speech.html" target="_blank">Демонстрация работы</a></li>
+            <li><a href="https://mdn.github.io/dom-examples/web-speech-api/speech-color-changer/" target="_blank">Заливка экрана сказанным цветом</a></li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide cover seventh" id="yandex-speechkit">
+    <div>
+        <h2>Яндекс.SpeechKit</h2>
+    </div>
+</section>
+
+<section class="slide" id="yandex-speechkit-what">
+    <div>
+        <h2>Яндекс.SpeechKit</h2>
+        <ul>
+            <li>Самостоятельная технология</li>
+            <li>Связь с удаленными серверами</li>
+            <li><a href="https://cloud.yandex.ru/services/speechkit" target="blank">SpeechKit Cloud API</a></li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="yandex-speechkit-demo">
+    <div>
+        <h2>Демо</h2>
+        <ul>
+            <li><a href="https://ya.ru/" target="_blank">Поиск</a></li>
+            <li><a href="https://translate.yandex.ru/" target="_blank">Переводчик</a></li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide cover end" id="the-end">
+    <div>
+        <h2>Спасибо за внимание</h2>
+        <div class="authors">
+            <p class="name">
+                Анастасия Пелевина
+            </p>
+        </div>
+    </div>
+</section>
+
+<div class="progress"></div>
+
+<!--<link rel="stylesheet" href="themes/highlight/styles/idea.min.css">-->
+<link rel="stylesheet" href="themes/highlight/styles/hanky.css">
+<script src="https://webasr.yandex.net/jsapi/v1/webspeechkit.js"></script>
+<script src="node_modules/shower-core/shower.min.js"></script>
+<script src="js/vendors/attrchange.js"></script>
+<script src="js/main.js"></script>
+<script src="themes/highlight/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>

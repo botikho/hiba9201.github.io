@@ -1,0 +1,83 @@
+#css-filters-example .container {
+
+}
+
+#css-filters-example .col {
+	display: inline-block;
+	vertical-align: top;
+	width: 39%;
+	text-align: left;
+    margin-left: 5px;
+}
+
+#css-filters-example .col_second {
+	display: inline-block;
+	vertical-align: top;
+	width: 60%;
+	text-align: right;
+}
+
+#css-filters-example .col-2 {
+	display: inline-block;
+	vertical-align: top;
+	width: 22em;
+}
+
+#css-filters-example .image {
+	transition: all .4s;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	margin-bottom: 15px;
+    width: 100%;
+}
+
+#css-filters-example .filter {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	padding: .1em;
+	cursor: pointer;
+}
+
+#css-filters-example .filter img {
+	width: 100%;
+	height: 100%;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+}
+
+#css-filters-example .filter .filter-name {
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	background: #fff;
+	text-align: center;
+	font-weight: bold;
+	overflow: hidden;
+	font-size: 2em;
+}
+
+#css-filters-example .active .filter-name {
+	background: #5a50e2;
+    /*background: #070717;*/
+	color: #fff;
+}
+
+#img-xpro2 {
+	filter: contrast(1.3) brightness(0.8) sepia(0.3) saturate(1.5) hue-rotate(-20deg);
+}
+
+#img-willow {
+	filter: saturate(0.02) contrast(0.85) brightness(1.2) sepia(0.02);
+}
+
+#img-walden {
+	filter: sepia(0.35) contrast(0.9) brightness(1.1) hue-rotate(-10deg) saturate(1.5);
+}
+
+#img-valencia {
+	filter: sepia(0.15) saturate(1.5) contrast(0.9);
+}
+
+#img-toaster {
+	filter: sepia(0.4) saturate(2.5) hue-rotate(-30deg) contrast(0.67);
+}

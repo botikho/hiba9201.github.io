@@ -1,7 +1,0 @@
-Please install fonts before use.
-
-Merriweather
-https://www.google.com/fonts/specimen/Merriweather
-
-Open Sans
-https://www.google.com/fonts/specimen/Open+Sans

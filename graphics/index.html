@@ -1,0 +1,2186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Мультимедиа. Графические эффекты.</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="themes/yandex2/styles/screen-16x9.css">
+    <script src="examples/vendors/jquery.min.js"></script>
+    <script src="examples/vendors/TweenMax.min.js"></script>
+
+    <style>
+        .demo button {
+            font-size: 190%;
+            padding: .3em .5em;
+        }
+
+        .demo .result {
+            text-align: center;
+            padding: 1em 0 1em;
+        }
+
+        .demo .result div,
+        .demo .code div {
+            display: none;
+        }
+
+        .demo .result div:first-child,
+        .demo .code div:first-child {
+            display: block;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .ib {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body class="shower list">
+
+<header class="caption">
+    <h1>Мультимедиа. Графические эффекты.</h1>
+    <p>Анастасия Пелевина, <a href="https://ya.ru/" target="_blank">Яндекс</a></p>
+</header>
+
+<section class="slide cover main">
+    <div>
+        <h2>Мультимедиа. Графические эффекты.</h2>
+        <div class="authors">
+            <p class="name">
+                Анастасия Пелевина
+            </p>
+            <p class="position">
+                Разработчик интерфейсов
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="slide toc" id="plan">
+    <div>
+        <h2>Обсудим</h2>
+        <div class="toc-wrapper">
+            <ul>
+                <li>
+                    <p class="toc-number">01</p>
+                    <p class="toc-text">Эффекты «из коробки»</p>
+                </li>
+                <li>
+                    <p class="toc-number">02</p>
+                    <p class="toc-text">Техники анимаций</p>
+                </li>
+                <li>
+                    <p class="toc-number">03</p>
+                    <p class="toc-text">Когда что применять</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="slide cover second" id="css">
+    <div>
+        <h2>Что есть «из&nbsp;коробки»?</h2>
+    </div>
+</section>
+
+<section class="slide toc" id="css-features">
+    <div>
+        <h2>Что есть «из&nbsp;коробки»?</h2>
+        <div class="toc-wrapper">
+            <ul class="double">
+                <li>
+                    <p class="toc-number">01</p>
+                    <p class="toc-text">Скругления, границы, градиенты, тени</p>
+                </li>
+                <li>
+                    <p class="toc-number">02</p>
+                    <p class="toc-text">Фильтры</p>
+                </li>
+                <li>
+                    <p class="toc-number">03</p>
+                    <p class="toc-text">Обрезка</p>
+                </li>
+                <li>
+                    <p class="toc-number">04</p>
+                    <p class="toc-text">Маски</p>
+                </li>
+                <li>
+                    <p class="toc-number">05</p>
+                    <p class="toc-text">Эффекты наложения</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="slide" id="css-decoration">
+    <link rel="stylesheet" href="css/css-decoration.css">
+    <div>
+        <h2>CSS</h2>
+        <div class="css-feature" id="multiple-borders"></div>
+        <div class="css-feature" id="triangle"><div></div></div>
+        <div class="css-feature" id="horizontal-stripes"></div>
+        <div class="css-feature" id="vertical-stripes"></div>
+        <div class="css-feature" id="pie">
+            <div></div>
+        </div>
+        <div class="css-feature" id="polka-dot"></div>
+<!--        <div class="css-feature" id="bubble"></div>-->
+        <a class="extra-link" href="http://play.csssecrets.io/" target="_blank">CSS Secrets Examples</a>
+    </div>
+</section>
+
+<section class="slide" id="css-filters">
+    <div>
+        <h2>Фильтры</h2>
+        <div class="code-list">
+            <pre class="code-block">
+                <code class="css">.filtered {</code>
+                <code class="css">  filter: blur(20px) grayscale(1);</code>
+                <code class="css">}</code>
+            </pre>
+            <div class="code-description">
+                <h3>CSS-функции фильтров</h3>
+                <ul>
+                    <li>blur()</li>
+                    <li>brightness()</li>
+                    <li>contrast()</li>
+                    <li>drop-shadow()</li>
+                    <li>grayscale()</li>
+                    <li>hue-rotate()</li>
+                    <li>invert()</li>
+                    <li>opacity()</li>
+                    <li>saturate()</li>
+                    <li>sepia()</li>
+                    <li>url()</li>
+                </ul>
+            </div>
+        </div>
+        <a class="extra-link" href="https://web.dev/learn/css/filters" target="_blank">Understanding CSS Filter Effects</a>
+    </div>
+</section>
+
+<section class="slide" id="css-filters-example">
+    <link rel="stylesheet" href="css/css-filters-example.css">
+    <script src="js/css-filters-example.js"></script>
+    <div>
+        <h2>Фильтры</h2>
+        <div class="container">
+            <div class="col">
+                <img src="pictures/cat.jpg" class="image" alt="">
+            </div>
+
+            <div class="col_second">
+                <div class="col-2 normal">
+                    <div class="filter">
+                        <img src="pictures/filter-etalon.jpg" alt="">
+                        <div class="filter-name">NORMAL</div>
+                    </div>
+                </div>
+
+                <div class="col-2 xpro2">
+                    <div class="filter">
+                        <img src="pictures/filter-etalon.jpg" alt="" id="img-xpro2">
+                        <div class="filter-name">X-PRO 2</div>
+                    </div>
+                </div>
+
+                <div class="col-2 willow">
+                    <div class="filter">
+                        <img src="pictures/filter-etalon.jpg" alt="" id="img-willow">
+                        <div class="filter-name">WILLOW</div>
+                    </div>
+                </div>
+
+                <div class="col-2 walden">
+                    <div class="filter">
+                        <img src="pictures/filter-etalon.jpg" alt="" id="img-walden">
+                        <div class="filter-name">WALDEN</div>
+                    </div>
+                </div>
+
+                <div class="col-2 valencia">
+                    <div class="filter">
+                        <img src="pictures/filter-etalon.jpg" alt="" id="img-valencia">
+                        <div class="filter-name">VALENCIA</div>
+                    </div>
+                </div>
+
+                <div class="col-2 toaster">
+                    <div class="filter">
+                        <img src="pictures/filter-etalon.jpg" alt="" id="img-toaster">
+                        <div class="filter-name">TOASTER</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="slide full-image" id="css-filters-supports">
+    <img src="pictures/caniuse/css-filters.png" alt="">
+</section>
+
+<section class="slide" id="css-backdrop-filters">
+    <div>
+        <h2>Фильтры</h2>
+        <div class="code-list">
+            <pre class="code-block">
+                <code class="css">.bg-filtered {</code>
+                <code class="css">  backdrop-filter: blur(20px) grayscale(1);</code>
+                <code class="css">}</code>
+            </pre>
+            <div class="code-description">
+                <h3>CSS-функции фильтров</h3>
+                <p>Те же, что и в filter</p>
+            </div>
+        </div>
+        <a class="extra-link" href="https://web.dev/learn/css/filters" target="_blank">Understanding CSS Filter Effects</a>
+    </div>
+</section>
+
+<section class="slide" id="css-backdrop-filters-example">
+    <link rel="stylesheet" href="css/css-backdrop-filters-example.css">
+    <div>
+        <h2>Фильтры</h2>
+        <div class="double">
+            <div class="col cat-diff-demo">
+                <p class="filter-diff-demo filter-diff-demo-text">filter: blur(10px)</p>
+            </div>
+
+            <div class="col cat-diff-demo">
+                <p class="backdrop-filter-diff-demo filter-diff-demo-text">backdrop-filter: blur(10px)</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="slide full-image" id="css-backdrop-filters-supports">
+    <img src="pictures/caniuse/css-backdrop-filters.png" alt="">
+</section>
+
+<section class="slide" id="css-clipping">
+    <style>
+        #css-clipping img {
+            width: 100%;
+        }
+    </style>
+    <div>
+        <h2>Обрезка</h2>
+        <img src="pictures/clipping-illustration.svg" alt="">
+        <pre>
+			<code class="css">.clipped {</code>
+			<code class="css">  clip-path: circle(60px at center);</code>
+			<code class="css">}</code>
+		</pre>
+        <a class="extra-link" href="https://css-tricks.com/clipping-masking-css/" target="_blank">Clipping and Masking in CSS</a>
+    </div>
+</section>
+
+<section class="slide" id="css-clipping-clippy">
+    <style>
+        #css-clipping-clippy p {
+            margin: 0;
+            text-align: center;
+        }
+
+        #css-clipping-clippy a {
+            background: none;
+            display: inline-block;
+        }
+
+        #css-clipping-clippy img {
+            height: 22em;
+        }
+    </style>
+    <div>
+        <h2>Обрезка</h2>
+        <p>
+            <a href="http://bennettfeely.com/clippy/" target="_blank"><img src="pictures/clippy.jpg" alt=""></a>
+        </p>
+        <a class="extra-link" href="http://bennettfeely.com/clippy/" target="_blank">CSS clip-path maker</a>
+    </div>
+</section>
+
+<section class="slide" id="css-clipping-example">
+    <link rel="stylesheet" href="css/css-clippath-example.css">
+    <div>
+        <h2>Обрезка: слайдер</h2>
+        <div class="cont">
+            <img class="background" src="pictures/svg-clippath.jpeg" alt="">
+            <img class="foreground" src="pictures/svg-clippath.jpeg" alt="">
+            <div id="resizer" class="resizer"></div>
+        </div>
+    </div>
+    <script src="js/css-clippath-example.js"></script>
+</section>
+
+<section class="slide full-image" id="css-clipping-supports">
+    <img src="pictures/caniuse/clip-path.png" alt="">
+</section>
+
+<section class="slide" id="css-masking">
+    <style>
+        #css-masking img {
+            width: 32em;
+        }
+
+        #css-masking .masked {
+            -webkit-mask-image: -webkit-gradient(linear, left top, right bottom,
+            color-stop(0.00,  rgba(0,0,0,1)),
+            color-stop(0.45,  rgba(0,0,0,1)),
+            color-stop(0.50,  rgba(0,0,0,0)),
+            color-stop(1.00,  rgba(0,0,0,0)));
+        }
+
+        #css-masking .operator {
+            vertical-align: top;
+            margin-top: 2.2em;
+            font-size: 600%;
+            padding: 0 .2em;
+            display: inline-block;
+        }
+
+        #css-masking ul {
+            margin-top: 3em;
+        }
+    </style>
+    <div>
+        <h2>Маски</h2>
+        <img src="pictures/cat.jpg" alt="">
+        <span class="operator">+</span>
+        <img src="pictures/mask.png" alt="">
+        <span class="operator">=</span>
+        <img src="pictures/cat.jpg" class="masked" alt="">
+        <ul>
+            <li>Clip Path - путь</li>
+            <li>Masks - изображение</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide full-image" id="css-masking-supports">
+    <img src="pictures/caniuse/masks.png" alt="">
+</section>
+
+<section class="slide" id="css-masking-code">
+    <div>
+        <h2>Маски</h2>
+        <pre>
+			<code class="css">.masked {</code>
+			<code class="css">  -webkit-mask-image: -webkit-gradient(linear, left top, right bottom,</code>
+			<code class="css">    color-stop(0.00, rgba(0,0,0,1)),</code>
+			<code class="css">    color-stop(0.45, rgba(0,0,0,1)),</code>
+			<code class="css">    color-stop(0.50, rgba(0,0,0,0)),</code>
+			<code class="css">    color-stop(1.00, rgba(0,0,0,0)));</code>
+			<code class="css">}</code>
+		</pre>
+        <a class="extra-link" href="https://css-tricks.com/webkit-image-wipes/" target="_blank">WebKit Image Wipes </a>
+    </div>
+</section>
+
+<section class="slide" id="css-blend-modes">
+    <style>
+        #css-blend-modes ul {
+        }
+        #css-blend-modes li {
+            margin: 10px 0;
+        }
+    </style>
+    <div>
+        <h2>Эффекты наложения</h2>
+        <div class="code-list">
+            <pre class="code-block">
+                <code class="css">.bg-blend {</code>
+                <code class="css">  background-image: url(face.jpg);</code>
+                <code class="css">  background-color: red;</code>
+                <code class="css">  background-blend-mode: multiply;</code>
+                <code>}</code>
+            </pre>
+            <div class="code-description">
+                <h3>Режимы наложения</h3>
+                <ul>
+                    <li>Режимы контраста — <i>overlay</i>, <i>soft-light</i>, <i>hard-light</i></li>
+                    <li>Режимы затемнения — <i>darken</i>, <i>multiply</i>, <i>color-burn</i></li>
+                    <li>Режимы осветления — <i>lighten</i>, <i>screen</i>, <i>color-dodge</i></li>
+                    <li>Режимы сравнения — <i>difference</i>, <i>exclusion</i></li>
+                    <li>Компонентные режимы — <i>hue</i>, <i>saturation</i>, <i>color</i>, <i>luminosity</i></li>
+                </ul>
+            </div>
+        </div>
+        <a class="extra-link" href="https://css-tricks.com/basics-css-blend-modes/" target="blank">Basics of CSS Blend Modes</a>
+    </div>
+</section>
+
+<section class="slide full-image" id="css-bg-blend-modes-supports">
+    <img src="pictures/caniuse/bg-blend-mode.png" alt="">
+</section>
+
+<section class="slide" id="css-blend-modes-example">
+    <style>
+        #css-blend-modes-example .operator {
+            vertical-align: top;
+            line-height: 100%;
+            font-size: 600%;
+            padding: .9em .2em 0;
+            display: inline-block;
+        }
+
+        #css-blend-modes-example .mask-example {
+            text-align: center;
+            margin: 2em auto 0;
+            background-color: rgba(198, 150, 226, 0.4);
+            padding: 20px;
+            border-radius: 20px;
+            display: flex;
+            width: max-content;
+        }
+
+        #css-blend-modes-example .mask-image {
+            height: 260px;
+            width: 260px;
+            display: inline-block;
+            background: url("pictures/black_white_squares.png") no-repeat center center;
+            background-size: contain;
+        }
+        #css-blend-modes-example .multiplied {
+            height: 260px;
+            width: 260px;
+            display: inline-block;
+            background: url("pictures/cat.jpg"), url("pictures/black_white_squares.png") no-repeat center center;
+            background-size: contain;
+            background-blend-mode: multiply;
+        }
+    </style>
+    <link rel="stylesheet" href="css/css-blend-modes-example.css">
+    <div>
+        <h2>Режимы наложения</h2>
+        <blockquote>Когда мы присваиваем слою режим Multiply, анализируется слой, лежайщий ниже. Белые участки пропадают совсем. Светло-серые становятся полупрозрачными. А черные остаются.</blockquote>
+        <div class="mask-example">
+            <img src="pictures/cat.jpg" alt="" width="260" height="260">
+            <span class="operator">+</span>
+            <div class="mask-image"></div>
+            <span class="operator">=</span>
+            <div class="multiplied"></div>
+        </div>
+        <div class="cmy"></div>
+        <a class="extra-link" href="http://hronofag.ru/2011/10/blending-mode/" target="_blank">Режимы наложения Blending mode</a>
+    </div>
+</section>
+
+<section class="slide" id="css-blend-modes-mix">
+    <style>
+        #css-blend-modes-mix pre {
+            margin-bottom: 50px;
+        }
+
+        #css-blend-modes-mix .horse {
+            padding: 8em 2em;
+            background: url(pictures/yandex-office.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+        #css-blend-modes-mix .horse h1 {
+            font-size: 134px;
+            padding: 0;
+            font-weight: bold;
+            margin: 0;
+            text-align: center;
+        }
+
+        #css-blend-modes-mix .horse h1 span {
+            display: inline-block;
+        }
+
+        #css-blend-modes-mix .horse h1 .y {
+            background-color: red;
+            color: white;
+            mix-blend-mode: luminosity;
+            border-radius: 50%;
+            padding: 10px;
+            width: 154px;
+            height: 154px;
+            text-align: center;
+            line-height: 1.05;
+            vertical-align: middle;
+            box-sizing: border-box;
+        }
+
+        #css-blend-modes-mix .horse h1 .rest {
+            color: red;
+            mix-blend-mode: difference;
+        }
+    </style>
+    <div>
+        <h2>Режимы наложения</h2>
+        <div class="javascript double">
+            <pre>
+                <code class="css">.y {</code>
+                <code class="css">  background-color: red;</code>
+                <code class="css">  color: white;</code>
+                <code class="css">  mix-blend-mode: luminosity;</code>
+                <code class="css">}</code>
+            </pre>
+            <pre>
+                <code class="css">.rest {</code>
+                <code class="css">  color: red;</code>
+                <code class="css">  mix-blend-mode: difference;</code>
+                <code class="css">}</code>
+            </pre>
+        </div>
+        <div class="horse">
+            <h1><span class="y">Я</span><span class="rest">ндекс</span></h1>
+        </div>
+    </div>
+</section>
+
+<section class="slide full-image" id="css-html-svg-blend-modes-supports">
+    <img src="pictures/caniuse/html-svg-blend-mode.png" alt="">
+</section>
+
+<section class="slide cover third" id="animations">
+    <div>
+        <h2>Анимации</h2>
+    </div>
+</section>
+
+<section class="slide" id="animations-purposes">
+    <div>
+        <h2>Зачем?</h2>
+        <ul>
+            <li>Внимание</li>
+            <li>Объяснение</li>
+            <li>Реалистичность</li>
+            <li>Шоу</li>
+        </ul>
+        <a class="extra-link" href="https://www.youtube.com/watch?v=6AmQcRI3yYY" target="_blank">Интерфейсные анимации, Илья Бирман</a>
+    </div>
+</section>
+
+<section class="slide rebuild" id="animations-gif">
+    <style>
+        #animations-gif {
+            --duration: 1.5s;
+            --show-icons: .1s;
+            --map-slide-height: 128px;
+        }
+
+        #animations-gif .logos {
+            margin: 2em 0 0;
+            text-align: center;
+        }
+
+        #animations-gif .logo {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        #animations-gif .animation {
+            width: 500px;
+            height: 200px;
+            background: url(pictures/google/bg.png) 0 0 no-repeat;
+            position: relative;
+            display: inline-block;
+        }
+
+        #animations-gif .animation__globus {
+            position: absolute;
+            left: 184px;
+            top: 27px;
+            width: var(--map-slide-height);
+            height: var(--map-slide-height);
+            background: #215aef;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        #animations-gif .animation__map {
+            width: 100%;
+            height: 600%;
+            background: url(pictures/google/map.png) 0 0 no-repeat;
+            animation-duration: calc(var(--duration) / 10);
+            animation-timing-function: steps(4);
+            animation-iteration-count: 10;
+            will-change: transform;
+            transform: translateY(0);
+        }
+
+        #animations-gif .animation:hover .animation__map {
+            animation-name: slideshow;
+        }
+
+        #animations-gif .icon {
+            position: absolute;
+            will-change: transform;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-size: contain;
+            opacity: 0;
+            transform: scale(0);
+            transform-origin: center;
+        }
+
+        #animations-gif .animation:hover .icon {
+            opacity: 1;
+            transform: scale(1);
+            transition-property: opacity, transform;
+            transition-duration: var(--show-icons);
+            transition-timing-function: ease;
+        }
+
+        #animations-gif .icon:not(.icon_glasses):before {
+            content: '';
+            padding-top: 100%;
+            display: block;
+        }
+
+        #animations-gif .icon_glasses {
+            width: 120px;
+            height: 19px;
+            top: 70px;
+            left: 200px;
+            background: url(pictures/google/glasses.png) 0 0 no-repeat;
+        }
+
+        #animations-gif .animation:hover .icon_glasses {
+            transition-delay: calc(var(--duration) - .1s);
+        }
+
+        #animations-gif .icon_1 {
+            background-image: url(pictures/google/icon_1.png);
+            width: 33px;
+            top: 35px;
+            left: 53px;
+        }
+
+        #animations-gif .animation:hover .icon_1 {
+            transition-delay: calc(var(--duration) + .3s);
+        }
+
+        #animations-gif .icon_2 {
+            background-image: url(pictures/google/icon_2.png);
+            width: 54px;
+            top: 79px;
+            left: 49px;
+        }
+
+        #animations-gif .animation:hover .icon_2 {
+            transition-delay: var(--duration);
+        }
+
+        #animations-gif .icon_3 {
+            background-image: url(pictures/google/icon_3.png);
+            width: 58px;
+            top: 32px;
+            left: 100px;
+        }
+
+        #animations-gif .animation:hover .icon_3 {
+            transition-delay: calc(var(--duration) + .1s);
+        }
+
+        #animations-gif .icon_4 {
+            background-image: url(pictures/google/icon_4.png);
+            width: 33px;
+            top: 99px;
+            left: 118px;
+        }
+
+        #animations-gif .animation:hover .icon_4 {
+            transition-delay: calc(var(--duration) + .2s);
+        }
+
+        #animations-gif .icon_5 {
+            background-image: url(pictures/google/icon_5.png);
+            width: 33px;
+            top: 32px;
+            left: 335px;
+        }
+
+        #animations-gif .animation:hover .icon_5 {
+            transition-delay: calc(var(--duration) + .25s);
+        }
+
+        #animations-gif .icon_6 {
+            background-image: url(pictures/google/icon_6.png);
+            width: 60px;
+            top: 77px;
+            left: 330px;
+        }
+
+        #animations-gif .animation:hover .icon_6 {
+            transition-delay: calc(var(--duration) + .05s);
+        }
+
+        #animations-gif .icon_7 {
+            background-image: url(pictures/google/icon_7.png);
+            width: 54px;
+            top: 27px;
+            left: 382px;
+        }
+
+        #animations-gif .animation:hover .icon_7 {
+            transition-delay: calc(var(--duration) + .15s);
+        }
+
+        #animations-gif .icon_8 {
+            background-image: url(pictures/google/icon_8.png);
+            width: 33px;
+            top: 97px;
+            left: 407px;
+        }
+
+        #animations-gif .animation:hover .icon_8 {
+            transition-delay: calc(var(--duration) + .35s);
+        }
+
+        .fail {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .success span {
+            font-size: 80%;
+        }
+
+        @keyframes slideshow {
+            to {
+                transform: translateY(calc(var(--map-slide-height) * -4));
+            }
+        }
+    </style>
+    <div>
+        <h2>GIF</h2>
+        <ul>
+            <li>Все плохо с сжатием</li>
+            <li>Без контроля</li>
+            <li>Но работает везде</li>
+        </ul>
+        <div class="logos next">
+            <div class="logo">
+                <img src="pictures/google/original.gif" alt=""><br>
+                <div class="fail">211 Kb</div>
+            </div>
+            <div class="logo next">
+                <div class="animation">
+                    <div class="animation__globus">
+                        <div class="animation__map"></div>
+                    </div>
+                    <div class="icon icon_glasses"></div>
+                    <div class="icon icon_1"></div>
+                    <div class="icon icon_2"></div>
+                    <div class="icon icon_3"></div>
+                    <div class="icon icon_4"></div>
+                    <div class="icon icon_5"></div>
+                    <div class="icon icon_6"></div>
+                    <div class="icon icon_7"></div>
+                    <div class="icon icon_8"></div>
+                </div><br>
+                <div class="success">35 Kb <span>(-83%)</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="slide" id="animations-css">
+    <div>
+        <h2>CSS анимации</h2>
+        <ul>
+            <li>Transitions</li>
+            <li>Keyframes</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide rebuild" id="animations-css-1">
+    <style>
+        #animations-css-1 .b-red
+        {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            display: inline-block;
+            vertical-align: top;
+            margin: 0 0 0 200px;
+        }
+        #animations-css-1 .b-red:hover
+        {
+            transition: transform 1s;
+            transform: rotate(360deg);
+        }
+        #animations-css-1 .b-yellow
+        {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            display: inline-block;
+            vertical-align: top;
+            margin: 0 0 0 200px;
+        }
+        #animations-css-1 .b-yellow:hover
+        {
+            animation: 1s rotate;
+        }
+        @keyframes rotate
+        {
+            to
+            {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <div>
+        <h2>CSS анимации</h2>
+        <table class="b-table_border_none">
+            <tr>
+                <td width="55%">
+                    <pre style="font-size:80%;">
+            <code>.b-red {</code>
+            <code>  transform: rotate(0);</code>
+            <code>}</code>
+            <code>.b-red:hover {</code>
+            <code>  transform: rotate(360deg);</code>
+            <code>  transition: transform 1s;</code>
+            <code>}</code>
+        </pre>
+                    <div class="b-red"></div>
+                </td>
+                <td>
+                    <pre style="font-size:80%;">
+            <code>.b-yellow:hover {</code>
+            <code>  animation: 1s rotate;</code>
+            <code>}</code>
+            <code>@keyframes rotate {</code>
+            <code>  from { transform: rotate(0); }</code>
+            <code>  to { transform: rotate(360deg); }</code>
+            <code>}</code>
+        </pre>
+                    <div class="b-yellow"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section class="slide" id="animations-css-properties">
+    <div>
+        <h2>CSS анимации</h2>
+        <ul>
+            <li>все преобразования: <i>translate</i>, <i>rotate</i>, <i>scale</i>, <i>skew</i></li>
+            <li><i>color</i>, <i>background-color</i>, <i>border-color</i></li>
+            <li><i>width</i>, <i>height</i>, <i>border-width</i>, <i>margin</i>, <i>padding</i></li>
+            <li><i>font-size</i>, <i>line-height</i>, <i>letter-spacing</i>, <i>word-spacing</i></li>
+            <li><i>top</i>, <i>right</i>, <i>bottom</i>, <i>left</i></li>
+            <li><i>opacity, visibility*</i></li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="animations-css-2">
+    <div>
+        <h2>CSS анимации</h2>
+        <ul>
+            <li>Просты</li>
+            <li>Оптимизированы*</li>
+            <li>Синхронизируются с частотой обновления экрана</li>
+            <li>Неконтролируемые: только запуск и пауза</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="animations-css-optimization">
+    <div>
+        <h2>CSS анимации: Compositing</h2>
+        <ul>
+            <li><i>Paint</i> - дорого (CPU, основной поток)</li>
+            <li><i>Compositing</i> - дешево (GPU, поток композитинга)</li>
+            <li><i>Opacity</i>, <i>transform</i>, <i>filter</i> - аппаратно ускоренные анимации</li>
+        </ul>
+        <div class="extra-link">
+            <a href="https://csstriggers.com/" target="_blank">CSS triggers</a>,
+            <a href="https://habrahabr.ru/company/yandex/blog/239169/" target="_blank">Аппаратное ускорение в жизни верстальщика</a>
+        </div>
+    </div>
+</section>
+
+<section class="slide" id="animations-js">
+    <div>
+        <h2>JS анимации</h2>
+        <pre>
+		<code>const fps = 60; // 60 кадров в секунду</code>
+		<code>const timer = setInterval(function() {</code>
+		<code>  if (время вышло) { clearInterval(timer); }</code>
+		<code>  else { немного увеличить left }</code>
+		<code>}, 1000 / fps)</code>
+		</pre>
+        <a class="extra-link" href="https://learn.javascript.ru/js-animation" target="_blank">Принципы JS анимации</a>
+    </div>
+</section>
+
+<section class="slide" id="animations-js-raf">
+    <div>
+        <h2>JS анимации: rAF</h2>
+        <div class="code-list">
+            <pre class="code-block">
+                <code>function animate() {</code>
+                <code>  ...do smth...</code>
+                <code>  requestAnimationFrame(animate);</code>
+                <code>}</code>
+                <code>animate();</code>
+            </pre>
+            <div class="code-description">
+                <h3>window.requestAnimationFrame(callback)</h3>
+                <ul>
+                    <li>вызывается в момент обновления кадра на экране</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="slide" id="animations-js-raf-2">
+    <div>
+        <h2>JS анимации: rAF</h2>
+        <ul>
+            <li>синхронизация</li>
+        </ul>
+
+        <div id="a" style="overflow:hidden;margin: 0 150px 0 150px;">
+            <div class="label">
+                <label for="display-refresh">Частота обновления экрана:</label>
+                <input id="display-refresh" type="range" min="50" max="70" value="60" step="1">
+                (<span id="cur-display-refresh">xxx</span> Hz)
+            </div>
+            <canvas id="canvas0" width="5000" height="40"></canvas>
+        </div>
+
+        <div id="b" style="display:block;overflow:scroll;margin: 0 150px 50px 150px;">
+            <div class="label">
+                <label for="interval">setTimeout interval:</label>
+                <input id="interval" type="range" min="6" max="20" value="16" step="1">
+                (<span id="cur-interval">xxx</span> ms)
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+            </div>
+            <canvas id="canvas1" width="5000" height="60"></canvas>
+        </div>
+        <script src="js/raf.js"></script>
+
+        <ul>
+            <li>экономия ресурсов</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="animations-js-libs">
+    <div>
+        <h2>JS анимации: библиотеки</h2>
+        <ul>
+            <li>jQuery</li>
+            <li>Lottie</li>
+            <li>GreenSock</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="animations-js-gsap">
+    <div>
+        <h2>JS анимации: GreenSock (GSAP)</h2>
+        <ul>
+            <li><i>pause()</i></li>
+            <li><i>play()</i></li>
+            <li><i>seek()</i></li>
+            <li><i>reverse()</i></li>
+            <li><i>ratio()</i></li>
+            <li>callback paradise (<i>start</i>, <i>update</i>, <i>finish</i> etc)</li>
+            <li><i>tween</i>, <i>timeline</i></li>
+            <li>plugins: <i>css</i>, <i>svg</i>, <i>canvas</i></li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="animations-js-gsap-example">
+    <script src="js/gsap.js"></script>
+    <style>
+        #animations-js-gsap-example .next {
+            visibility: visible !important;
+            position: relative;
+        }
+        #animations-js-gsap-example .active:before
+        {
+            content: '';
+            position: absolute;
+            top: -4px;
+            bottom: -4px;
+            left: -4px;
+            right: -4px;
+            background-color: #0289fb;
+            border-radius: 5px;
+            opacity: .3;
+        }
+        #animations-js-gsap-example #demo
+        {
+            width: 770px;
+            height: 180px;
+            padding: 8px;
+            margin: -15px auto 65px;
+        }
+        #animations-js-gsap-example #logo
+        {
+            position: relative;
+            width: 170px;
+            height: 170px;
+            background: url(https://rawgit.com/mrsamo/web-animations/master/examples/composite-thread/i/yabro.png) no-repeat;
+        }
+        #animations-js-gsap-example .controls
+        {
+            text-align: center;
+        }
+        #animations-js-gsap-example input[type="button"]
+        {
+            -webkit-appearance: button;
+            padding: 8px;
+            margin-right: 106px;
+            margin-bottom: 60px;
+            transform: scale(2);
+        }
+    </style>
+    <div>
+        <h2>JS анимации: GSAP</h2>
+        <pre>
+		<code>const tween = gsap.to('#logo', {</code>
+		<code>   x: 600, rotation: 360, duration: 3, ease: "none"</code>
+		<code>});</code>
+		</pre>
+        <div id="demo">
+            <div id="logo"></div>
+        </div>
+        <div class="controls">
+            <input type="button" id="playBtn" value="play()">
+            <input type="button" id="pauseBtn" value="pause()">
+            <input type="button" id="resumeBtn" value="resume()">
+            <input type="button" id="reverseBtn" value="reverse()">
+            <input type="button" id="playFromBtn" value="play(2)">
+            <input type="button" id="reverseFromBtn" value="reverse(1)"><br/>
+            <input type="button" id="seekBtn" value="seek(2)">
+            <input type="button" id="timeScaleSlowBtn" value="timeScale(0.5)">
+            <input type="button" id="timeScaleNormalBtn" value="timeScale(1)">
+            <input type="button" id="timeScaleFastBtn" value="timeScale(2)">
+            <input type="button" id="restartBtn" value="restart()">
+        </div>
+        <a class="extra-link" href="https://greensock.com/cheatsheet/" target="_blank">GSAP Cheat Sheet</a>
+    </div>
+</section>
+
+<section class="slide" id="animations-js-2">
+    <div>
+        <h2>JS анимации</h2>
+        <ul>
+            <li>Полный контроль</li>
+            <li>Синхронизируются с частотой обновления экрана</li>
+            <li>Работают в основном потоке</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="animations-perf">
+    <div>
+        <h2>Производительность</h2>
+        <h3><a href="https://rawgit.com/mrsamo/web-animations/master/examples/perf/index.html" target="_blank">Сравнение производительности анимаций CSS/JS</a></h3>
+        <p class="next">Результат: CSS обеспечивает больший FPS и меньшую загруженность основного потока</p>
+    </div>
+</section>
+
+<section class="slide" id="animations-web-animations">
+    <div>
+        <h2>Web Animations</h2>
+        <ul>
+            <li>Собственный поток (как в CSS)</li>
+            <li>Полный контроль (как в JS)</li>
+        </ul>
+        <a class="extra-link" href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API" target="_blank">Web Animations API MDN</a>
+    </div>
+</section>
+
+<section class="slide" id="animations-web-animations-syntax">
+    <div>
+        <h2>Web Animations: синтаксис</h2>
+        <pre>
+            <code class="language-javascript">const player = element.animate([</code>
+            <code class="language-javascript"> {cssProperty: value0},</code>
+            <code class="language-javascript"> {cssProperty: value1},</code>
+            <code class="language-javascript"> {cssProperty: value2},</code>
+            <code class="language-javascript"> //...</code>
+            <code class="language-javascript">], {</code>
+            <code class="language-javascript"> duration: timeInMs,</code>
+            <code class="language-javascript"> iterations: iterationCount,</code>
+            <code class="language-javascript"> delay: delayValue</code>
+            <code class="language-javascript">});</code>
+		</pre>
+    </div>
+</section>
+
+<section class="slide" id="animations-web-animations-syntax-constructor">
+    <div>
+        <h2>Web Animations: синтаксис</h2>
+        <pre>
+            <code>const player = /* создаем плеер */;</code>
+            <code> </code>
+            <code>player.play();</code>
+            <code>player.pause();</code>
+            <code>player.finish();</code>
+            <code>player.cancel();</code>
+            <code>player.reverse();</code>
+            <code>player.seek();</code>
+		</pre>
+    </div>
+</section>
+
+<section class="slide full-image" id="animations-web-animations-suppurts">
+    <img src="pictures/caniuse/web-animations-api.png" alt="">
+</section>
+
+<section class="slide" id="animations-web-animations-compare">
+    <div>
+        <h2>Анимации: потоки</h2>
+        <h3>Разные техники анимации используют разные потоки для работы</h3>
+        <p><a href="https://rawgit.com/mrsamo/web-animations/gh-pages/examples/composite-thread/index.html" target="_blank">Загадка</a></p>
+    </div>
+</section>
+
+<section class="slide cover fourth" id="svg">
+    <div>
+        <h2>SVG</h2>
+    </div>
+</section>
+
+<section class="slide" id="svg-describe">
+    <div>
+        <h2>SVG</h2>
+        <p><b>Scalable Vector Graphics</b> — язык разметки векторной графики, созданный W3C, подмножество языка XML. Предназначен для описания векторной и смешанной (векторно-растровой) двухмерной графики, поддерживает анимацию и интерактивность.</p>
+    </div>
+</section>
+
+<section class="slide" id="svg-features">
+    <div>
+        <h2>SVG</h2>
+        <ul>
+            <li>масштабируется</li>
+            <li>четкий на ретине</li>
+            <li>можно написать руками</li>
+            <li>переиспользуемые компоненты</li>
+            <li>доступен как DOM для CSS и JS</li>
+            <li>хорошая поддержка браузерами</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="svg-insert">
+    <div>
+        <h2>Встраивание</h2>
+        <ul>
+            <li>&lt;embed&gt;, &lt;object&gt;, &lt;iframe&gt;</li>
+            <li>&lt;img&gt;</li>
+            <li>background-image: url()</li>
+            <li>dataURI</li>
+            <li>SVG в HTML</li>
+            <li>шрифт</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="svg-drawing">
+    <div>
+        <h2>Рисование</h2>
+        <div class="demo">
+            <div class="controls">
+                <button>Линия</button>
+                <button>Прямоугольник</button>
+                <button>Круг</button>
+                <button>Эллипс</button>
+                <button>Многоугольник</button>
+                <button>Путь</button>
+            </div>
+            <div class="result">
+                <div>
+                    <svg viewBox="0 0 500 270" width="500" height="270" >
+                        <line x1="10" y1="260" x2="490" y2="10"stroke="violet" stroke-width="10" />
+                    </svg>
+                </div>
+                <div>
+                    <svg viewBox="0 0 510 270" width="500" height="270">
+                        <rect width="500" height="260" x="5" y="5" fill="skyblue" stroke="steelblue" stroke-width="5" />
+                    </svg>
+                </div>
+                <div>
+                    <svg viewBox="0 0 270 270" width="500" height="270">
+                        <circle r="130" cx="135" cy="135"fill="orangered" stroke="crimson" stroke-width="5" />
+                    </svg>
+                </div>
+                <div>
+                    <svg viewBox="0 0 500 270" width="500" height="270">
+                        <ellipse rx="240" ry="130" cx="250" cy="135" fill="gold" stroke="orange" stroke-width="5" />
+                    </svg>
+                </div>
+                <div>
+                    <svg viewBox="0 0 140 130" width="500" height="270">
+                        <polygon points="70,5 90,41 136,48 103,80 111,126 70,105 29,126 36,80 5,48 48,41"
+                                 fill="turquoise" stroke="lightseagreen" stroke-width="3" />
+                    </svg>
+                </div>
+                <div>
+                    <svg height="270" viewBox="0 0 200 140">
+                        <path d="M 10,30 A 20,31 320 0 0 190,30" stroke="purple" stroke-width="3" fill="violet"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="code">
+                <div>
+					<pre>
+						<code class="html">&lt;svg viewBox="0 0 500 270" width="500" height="270"></code>
+						<code class="html">  &lt;line x1="10" y1="260" x2="490" y2="10" stroke="violet" stroke-width="10" /></code>
+						<code class="html">&lt;/svg></code>
+					</pre>
+                </div>
+                <div>
+					<pre>
+						<code class="html">&lt;svg viewBox="0 0 500 270" width="500" height="270"></code>
+						<code class="html">  &lt;rect width="500" height="260" x="5" y="5" fill="skyblue"
+        stroke="steelblue" stroke-width="5" /></code>
+						<code class="html">&lt;/svg></code>
+					</pre>
+                </div>
+                <div>
+					<pre>
+						<code class="html">&lt;svg viewBox="0 0 500 270" width="500" height="270"></code>
+						<code class="html">  &lt;circle r="130" cx="135" cy="135"fill="orangered" stroke="crimson"
+        stroke-width="5" /></code>
+						<code class="html">&lt;/svg></code>
+					</pre>
+                </div>
+                <div>
+					<pre>
+						<code class="html">&lt;svg viewBox="0 0 500 270" width="500" height="270"></code>
+						<code class="html">  &lt;ellipse rx="240" ry="130" cx="250" cy="135" fill="gold" stroke="orange"
+        stroke-width="5" /></code>
+						<code class="html">&lt;/svg></code>
+					</pre>
+                </div>
+                <div>
+					<pre>
+						<code class="html">&lt;svg viewBox="0 0 500 270" width="500" height="270"></code>
+						<code class="html">  &lt;polygon points="70,5 90,41 136,48 103,80 111,126 70,105 29,126 36,80 5,48"
+        fill="turquoise" stroke="lightseagreen" stroke-width="3" /></code>
+						<code class="html">&lt;/svg></code>
+					</pre>
+                </div>
+                <div>
+					<pre>
+						<code class="html">&lt;svg viewBox="0 0 500 270" height="270"></code>
+						<code class="html">  &lt;path d="M 10,30 A 20,31 320 0 0 190,30" stroke="purple" stroke-width="3"
+        fill="violet"/></code>
+						<code class="html">&lt;/svg></code>
+					</pre>
+                </div>
+            </div>
+        </div>
+        <a class="extra-link" href="http://css.yoksel.ru/svg-shapes/" target="_blank">SVG-фигуры и трансформации</a>
+    </div>
+</section>
+
+<section class="slide" id="svg-example-path-2">
+    <style>
+        #svg-example-path-2 li {
+            margin: 10px 0;
+        }
+    </style>
+    <div>
+        <h2>SVG: path</h2>
+        <ul>
+            <li>M, m — moveto</li>
+            <li>Z — closepath</li>
+            <li>L, l — lineto</li>
+            <li>H, h — horizontal lineto</li>
+            <li>V, v — vertical lineto</li>
+            <li>C, c — curveto</li>
+            <li>S, s — smooth curveto</li>
+            <li>Q, q — quadratic Bézier curveto</li>
+            <li>T, t — smooth quadratic Bézier curveto</li>
+            <li>A, a — elliptical arc</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="svg-clipping">
+    <div>
+        <h2>Обрезка</h2>
+        <pre>
+            <code class="html">&lt;clippath id="clip-star"></code>
+            <code class="html">  &lt;polygon points="98.499..." /></code>
+            <code class="html">&lt;/clippath></code>
+        </pre>
+
+        <pre>
+            <code class="css">clip-path: url(#clip-star);</code>
+        </pre>
+
+        <a class="extra-link" href="http://www.cssplant.com/clip-path-generator" target="_blank">Clip Path Generator</a>
+    </div>
+</section>
+
+<section class="slide" id="svg-masking">
+    <div>
+        <h2>Маски</h2>
+        <pre>
+			<code>&lt;mask id="mask"></code>
+			<code>  &lt;image xlink:href="your-image.png" width="200" height="300" /></code>
+			<code>&lt;/mask></code>
+		</pre>
+        <pre>
+			<code>mask: url(#mask);</code>
+		</pre>
+    </div>
+</section>
+
+<section class="slide rebuild" id="svg-smil">
+    <style>
+        #svg-smil pre {
+            margin-bottom: 50px;
+        }
+    </style>
+    <div>
+        <h2>SMIL</h2>
+        <p><i>Synchronized Multimedia Integration Language</i></p>
+        <ul style="margin-top: 30px; margin-bottom: 50px">
+            <li>Анимация</li>
+            <li>Интерактивность</li>
+        </ul>
+        <pre>
+            <code class="html">&lt;rect width="250" height="250" ...></code>
+            <code class="html">  &lt;animate attributeName="width" from="0px" to="250px" dur="1s" begin="click" /></code>
+            <code class="html">  &lt;animate attributeName="height" from="0px" to="250px" dur="1s" begin="click" /></code>
+            <code class="html">&lt;/rect></code>
+        </pre>
+        <svg style="display: block; margin: 0 auto" viewBox="0 0 255 255" width="255" height="255">
+            <rect x="2" y="2" width="250" height="250" fill="#FCCD00" stroke-width="3" stroke="#5A50E2">
+                <animate attributeName="width" from="0px" to="250px" dur="1s" begin="click" />
+                <animate attributeName="height" from="0px" to="250px" dur="1s" begin="click" />
+            </rect>
+        </svg>
+        <a class="extra-link" href="https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_animation_with_SMIL" target="blank">SMIL Animation</a>
+    </div>
+</section>
+
+<section class="slide full-image" id="svg-smil-suppurts">
+    <img src="pictures/caniuse/svg-smil.png" alt="">
+</section>
+
+<section class="slide" id="svg-libs">
+    <div>
+        <h2>SVG Animations</h2>
+        <ul>
+            <li><a href="http://dmitrybaranovskiy.github.io/raphael/" target="_blank">Raphaël</a></li>
+            <li><a href="http://snapsvg.io/" target="_blank">Snap.svg</a></li>
+            <li><a href="http://d3js.org/" target="_blank">D3.js</a></li>
+            <li><a href="https://greensock.com/" target="_blank">GSAP</a></li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide rebuild" id="svg-examples">
+    <div>
+        <h2>SVG</h2>
+        <ul>
+            <li><a href="http://yoksel.github.io/about-svg/" target="_blank">Позвольте представить: SVG</a></li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide full-image" id="svg-morphing">
+    <style>
+        #svg-morphing video {
+            height: 100%;
+        }
+    </style>
+    <video src="pictures/yaru.mp4" pip="false" loop></video>
+</section>
+
+<section class="slide cover fifth" id="canvas">
+    <div>
+        <h2>Canvas</h2>
+    </div>
+</section>
+
+<section class="slide" id="canvas-what">
+    <div>
+        <h2>Canvas</h2>
+        <h3>Холст для рисования</h3>
+        <pre>
+			<code class="html">&lt;canvas height="320" width="480" id="canvas">Обновите браузер&lt;/canvas></code>
+			<code></code>
+			<code class="html">&lt;script></code>
+			<code class="javascript">  const canvas = document.getElementById('canvas');</code>
+			<code class="javascript">  const context = canvas.getContext('2d');</code>
+			<code class="javascript">  ...</code>
+			<code class="html">&lt;/script></code>
+		</pre>
+    </div>
+</section>
+
+<section class="slide" id="canvas-drawing">
+    <style>
+        #canvas-drawing .result,
+        #canvas-drawing .code {
+            display: inline-block;
+            vertical-align: top;
+            width: 49%;
+        }
+
+        #canvas-drawing .result {
+            margin-top: 3em;
+        }
+    </style>
+    <div>
+        <h2>Рисование</h2>
+        <div class="demo">
+            <div class="controls">
+                <button>Линия</button>
+                <button>Дуга</button>
+                <button>Круг</button>
+            </div>
+            <div class="result">
+                <div>
+                    <canvas id="canvas-demo-line" width="578" height="200"></canvas>
+                    <script>
+                        const canvasLine = document.getElementById('canvas-demo-line');
+                        const contextLine = canvasLine.getContext('2d');
+
+                        contextLine.beginPath();
+                        contextLine.moveTo(100, 150);
+                        contextLine.lineTo(450, 50);
+                        contextLine.lineWidth = 15;
+                        contextLine.stroke();
+                    </script>
+                </div>
+                <div>
+                    <canvas id="canvas-demo-arc" width="578" height="250"></canvas>
+                    <script>
+                        const canvasArc = document.getElementById('canvas-demo-arc');
+                        const contextArc = canvasArc.getContext('2d');
+                        const x = canvasArc.width / 2;
+                        const y = canvasArc.height / 2;
+                        const radiusArc = 75;
+                        const startAngle = 1.1 * Math.PI;
+                        const endAngle = 1.9 * Math.PI;
+                        const counterClockwise = false;
+
+                        contextArc.beginPath();
+                        contextArc.arc(x, y, radiusArc, startAngle, endAngle, counterClockwise);
+                        contextArc.lineWidth = 15;
+
+                        // line color
+                        contextArc.strokeStyle = 'black';
+                        contextArc.stroke();
+                    </script>
+                </div>
+                <div>
+                    <canvas id="canvas-demo-circle" width="578" height="200"></canvas>
+                    <script>
+                        const canvasCircle = document.getElementById('canvas-demo-circle');
+                        const contextCircle = canvasCircle.getContext('2d');
+                        const centerX = canvasCircle.width / 2;
+                        const centerY = canvasCircle.height / 2;
+                        const radiusCircle = 70;
+
+                        contextCircle.beginPath();
+                        contextCircle.arc(centerX, centerY, radiusCircle, 0, 2 * Math.PI, false);
+                        contextCircle.fillStyle = 'green';
+                        contextCircle.fill();
+                        contextCircle.lineWidth = 5;
+                        contextCircle.strokeStyle = '#003300';
+                        contextCircle.stroke();
+                    </script>
+                </div>
+            </div>
+            <div class="code">
+                <div>
+					<pre>
+						<code class="javascript">context.beginPath();</code>
+						<code class="javascript">context.moveTo(100, 150);</code>
+						<code class="javascript">context.lineTo(450, 50);</code>
+						<code class="javascript">context.lineWidth = 15;</code>
+						<code class="javascript">context.stroke();</code>
+					</pre>
+                </div>
+                <div>
+					<pre>
+						<code class="javascript">const radius = 75;</code>
+						<code class="javascript">const startAngle = 1.1 * Math.PI;</code>
+						<code class="javascript">const endAngle = 1.9 * Math.PI;</code>
+						<code class="javascript">const counterClockwise = false;</code>
+						<code class="javascript"> </code>
+						<code class="javascript">context.beginPath();</code>
+						<code class="javascript">context.arc(x, y, radius, startAngle</code>
+						<code class="javascript">  endAngle, counterClockwise);</code>
+						<code class="javascript">context.lineWidth = 15;</code>
+						<code class="javascript">context.strokeStyle = 'black';</code>
+						<code class="javascript">context.stroke();</code>
+					</pre>
+                </div>
+                <div>
+					<pre>
+						<code class="javascript">context.beginPath();</code>
+						<code class="javascript">context.arc(centerX, centerY, radius, 0,</code>
+						<code class="javascript">  2 * Math.PI, false);</code>
+						<code class="javascript">context.fillStyle = 'green';</code>
+						<code class="javascript">context.fill();</code>
+						<code class="javascript">context.lineWidth = 5;</code>
+						<code class="javascript">context.strokeStyle = '#003300';</code>
+						<code class="javascript">context.stroke();</code>
+					</pre>
+                </div>
+            </div>
+        </div>
+
+        <a class="extra-link" target="_blank" href="https://www.html5canvastutorials.com/">HTML5 Canvas Tutorial</a>
+    </div>
+</section>
+
+<section class="slide" id="canvas-handle-image">
+    <div>
+        <h2>Обработка изображения</h2>
+        <ul>
+            <li>getImageData()</li>
+            <pre>
+				<code class="javascript">ImageData {</code>
+				<code class="javascript">  data [</code>
+				<code class="javascript">    0, 0, 0, 255,		// rgba, 1st pixel</code>
+				<code class="javascript">    127, 127, 127, 255	// 2nd pixel</code>
+				<code class="javascript">  ]</code>
+				<code class="javascript">  height: 1</code>
+				<code class="javascript">  width: 2</code>
+				<code class="javascript">}</code>
+			</pre>
+            <li>putImageData()</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="canvas-grayscale">
+    <style>
+        #canvas-grayscale td {
+            vertical-align: top;
+        }
+
+        #canvas-grayscale pre {
+            margin-top: -1em;
+            margin-left: 50px;
+        }
+
+        #canvas-grayscale code {
+            font-size: 155% !important;
+            line-height: 1.4 !important;
+        }
+    </style>
+    <div>
+        <h2>GrayScale</h2>
+        <table class="b-table_border_none">
+            <tr>
+                <td valign="top">
+                    <canvas id="canvas-grayscale-node" width="612" height="612"></canvas>
+                </td>
+                <td valign="top">
+					<pre>
+						<span class="next">
+                            <code class="javascript">const img = document.querySelector('img');</code>
+							<code class="javascript">const canvas = document.querySelector('canvas');</code>
+							<code class="javascript">const context = canvas.getContext('2d');</code>
+							<code class="javascript">const x = 0;</code>
+							<code class="javascript">const y = 0;</code>
+						</span>
+
+						<span class="next">
+							<code class="javascript"> </code>
+							<code class="javascript">context.drawImage(img, x, y);</code>
+						</span>
+
+						<span class="next">
+							<code class="javascript"> </code>
+							<code class="javascript">const imageData = context.getImageData(</code>
+							<code class="javascript">  x, y, img.width, img.height</code>
+							<code class="javascript">);</code>
+                            <code class="javascript"> </code>
+						</span>
+
+						<span class="next">
+							<code class="javascript">const { data } = imageData;</code>
+                            <code class="javascript"> </code>
+							<code class="javascript">for (let i = 0; i < data.length; i += 4) {</code>
+							<code class="javascript">  const brightness = </code>
+							<code class="javascript">    0.34 * data[i] + 0.5 * data[i+1] + 0.16 * data[i+2];</code>
+							<code class="javascript">  data[i] = brightness;	// red</code>
+							<code class="javascript">  data[i+1] = brightness;	// green</code>
+							<code class="javascript">  data[i+2] = brightness;	// blue</code>
+							<code class="javascript">}</code>
+						</span>
+
+						<span class="next">
+							<code class="javascript"> </code>
+							<code class="javascript">context.putImageData(imageData, x, y);</code>
+						</span>
+					</pre>
+                </td>
+            </tr>
+        </table>
+        <script>
+            function drawCanvasImage(img) {
+                const canvas = document.querySelector('#canvas-grayscale-node');
+                const context = canvas.getContext('2d');
+                const x = 0;
+                const y = 0;
+
+                context.drawImage(img, x, y);
+
+                const imageData = context.getImageData(x, y, img.width, img.height);
+                const {data} = imageData;
+
+                for (let i = 0; i < data.length; i += 4) {
+                    const brightness = 0.34 * data[i] + 0.5 * data[i+1] + 0.16 * data[i+2];
+
+                    data[i] = brightness;	// red
+                    data[i+1] = brightness;	// green
+                    data[i+2] = brightness;	// blue
+                }
+
+                context.putImageData(imageData, x, y);
+            }
+
+            const img = new Image();
+            img.onload = function() {
+                drawCanvasImage(this);
+            };
+            img.src = 'pictures/cat.jpg';
+        </script>
+    </div>
+</section>
+
+<section class="slide" id="canvas-save-data">
+    <style>
+        #canvas-save-data .base64 {
+            width: 100%;
+            max-width: 40%;
+            overflow-wrap: break-word;
+            white-space: pre-wrap;
+        }
+    </style>
+    <div>
+        <h2>Сохранение canvas</h2>
+        <pre>
+			<code class="javascript">const url = canvas.toDataURL();</code>
+			<code> </code>
+			<code class="javascript base64">// data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3/OAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVEiJtZZPbBtFFMZ/M7ubXdtdb1xSFyeilBapySVU8h8OoFaooFSqiihIVIp...</code>
+		</pre>
+    </div>
+</section>
+
+<section class="slide full-image" id="canvas-supports">
+    <img src="pictures/caniuse/canvas.png" alt="">
+</section>
+
+<section class="slide" id="canvas-not-memory">
+    <div>
+        <h2>Интерактивность</h2>
+        <ul>
+            <li>незапоминаемая поверхность рисования</li>
+            <li>отслеживать фигуры и проверять попадания (hit testing)</li>
+        </ul>
+        <ul>
+            <li><a href="https://www.createjs.com/" target="_blank">CreateJS</a> (<a href="https://metrika.yandex.ru/welcome" target="_blank">Яндекс.Метрика</a>)</li>
+            <li><a href="https://konvajs.github.io/" target="_blank">Konva.js</a></li>
+            <li><a href="http://www.pixijs.com/" target="_blank">PixiJS</a></li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide cover sixth" id="webgl">
+    <div>
+        <h2>WebGL</h2>
+    </div>
+</section>
+
+<section class="slide" id="webgl-what">
+    <div>
+        <h2>WebGL</h2>
+        <ul>
+            <li>низкоуровноевое API доступа к ресурсам видеокарты</li>
+            <li>аппаратно-ускоренная графика в web</li>
+        </ul>
+        <p style="text-align: center; margin-top: 60px">
+            <img src="pictures/webgl-scheme.png" width="900" alt="">
+        </p>
+    </div>
+</section>
+
+<section class="slide" id="webgl-canvas-3d">
+    <div>
+        <h2>WebGL</h2>
+        <pre>
+			<code class="html">&lt;canvas height="320" width="480" id="canvas">Обновите браузер&lt;/canvas></code>
+			<code></code>
+			<code class="html">&lt;script></code>
+			<code class="javascript">  const canvas = document.getElementById('canvas');</code>
+			<code class="javascript">  const ctx = canvas.getContext('webgl')</code>
+			<code class="javascript">    || canvas.getContext('experimental-webgl');</code>
+			<code class="javascript">  ...</code>
+			<code class="html">&lt;/script></code>
+		</pre>
+    </div>
+</section>
+
+<section class="slide full-image" id="webgl-supports">
+    <img src="pictures/caniuse/webgl.png" alt="">
+</section>
+
+<section class="slide full-image" id="webgl-speed-video">
+    <style>
+        #webgl-speed-video video {
+            min-width: 100%;
+            min-height: 100%;
+            width: 100%;
+        }
+    </style>
+    <video src="pictures/gpu-video.mov" muted loop></video>
+</section>
+
+<section class="slide" id="webgl-speed">
+    <div>
+        <h2>Быстродействие</h2>
+        <div class="double">
+            <div>
+                <h3>Canvas 2D</h3>
+                <ul>
+                    <li>Операции выполняет JS</li>
+                    <li>JS выполняется в один поток</li>
+                    <li>Нет параллельных вычислений</li>
+                </ul>
+            </div>
+            <div>
+                <h3>WebGL</h3>
+                <ul>
+                    <li>JS передает данные в GPU</li>
+                    <li>Операции выполняет GPU</li>
+                    <li>Параллельный доступ к данным</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="slide" id="webgl-demo">
+    <div>
+        <h2>WebGL</h2>
+        <ul>
+            <li><a href="https://github.com/pauldraper/webgl-examples" target="_blank">WebGL examples</a></li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="webgl-why">
+    <div>
+        <h2>WebGL</h2>
+        <ul>
+            <li>3D графика</li>
+            <li>Игры</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide full-image" id="webgl-weather">
+    <style>
+        #webgl-weather video {
+            min-width: 100%;
+            min-height: 100%;
+        }
+    </style>
+    <a href="https://habr.com/ru/company/yandex/blog/433278/" target="_blank">
+        <video src="pictures/weather-wind.mov" pip="false" loop></video>
+    </a>
+</section>
+
+<section class="slide" id="webgl-ver">
+    <style>
+        #webgl-ver code {
+            font-size: 30px !important;
+            line-height: 52px !important;
+        }
+    </style>
+    <div>
+        <h2>WebGL: grayscale</h2>
+        <pre>
+			<code>&lt;script type="x-shader/x-vertex"></code>
+			<code>  attribute vec2 a_position;</code>
+            <code>  attribute vec2 a_texCoord;</code>
+            <code>  varying vec2 v_texCoord;</code>
+            <code>  uniform vec2 u_resolution;</code>
+			<code>  </code>
+			<code>  void main() {</code>
+            <code>    vec2 zeroToOne = a_position / u_resolution;</code>
+            <code>    vec2 zeroToTwo = zeroToOne * 2.0;</code>
+            <code>    vec2 clipSpace = zeroToTwo - 1.0;</code>
+            <code>    gl_Position = vec4(clipSpace * vec2(1, -1), 0, 1);</code>
+            <code>    v_texCoord = a_texCoord;</code>
+			<code>  }</code>
+			<code>&lt;/script></code>
+	</pre>
+        <a class="extra-link" href="https://webglfundamentals.org/webgl/lessons/webgl-image-processing.html" target="_blank">WebGL Fundamentals</a>
+    </div>
+</section>
+
+<section class="slide" id="webgl-frag">
+    <div>
+        <h2>WebGL: grayscale</h2>
+        <pre>
+			<code>&lt;script type="x-shader/x-fragment"></code>
+			<code>  precision mediump float;</code>
+			<code>  varying vec2 coord;</code>
+			<code>  uniform sampler2D image;</code>
+			<code>  </code>
+			<code>  void main() {</code>
+			<code>    vec4 color = texture2D(image, coord);</code>
+			<code>    color.rgb = vec3(color.r + color.g + color.b) / 3.0;</code>
+			<code>    gl_FragColor = color;</code>
+			<code>  }</code>
+			<code>&lt;/script></code>
+	</pre>
+        <a class="extra-link" href="https://webglfundamentals.org/webgl/lessons/webgl-image-processing.html" target="_blank">WebGL Fundamentals</a>
+    </div>
+</section>
+
+<section class="slide" id="webgl-code-a-lot">
+    <style>
+        #webgl-code-a-lot pre {
+            padding: 0;
+        }
+
+        #webgl-code-a-lot code {
+            font-size: 80% !important;
+            line-height: 0.93 !important;
+            height: 100em;
+            overflow: auto;
+            padding: 0;
+            margin-left: 0;
+        }
+    </style>
+    <div>
+        <h2>WebGL: grayscale</h2>
+        <pre>
+<code class="javascript double">"use strict";
+
+function main() {
+  var image = new Image();
+  image.src = "https://webglfundamentals.org/webgl/resources/leaves.jpg";
+  image.onload = function() {
+    render(image);
+  };
+}
+
+function render(image) {
+  // Get A WebGL context
+  /** @type {HTMLCanvasElement} */
+  var canvas = document.querySelector("#canvas");
+  var gl = canvas.getContext("webgl");
+  if (!gl) {
+    return;
+  }
+
+  // setup GLSL program
+  var program = webglUtils.createProgramFromScripts(gl, ["vertex-shader-2d", "fragment-shader-2d"]);
+
+  // look up where the vertex data needs to go.
+  var positionLocation = gl.getAttribLocation(program, "a_position");
+  var texcoordLocation = gl.getAttribLocation(program, "a_texCoord");
+
+  // Create a buffer to put three 2d clip space points in
+  var positionBuffer = gl.createBuffer();
+
+  // Bind it to ARRAY_BUFFER (think of it as ARRAY_BUFFER = positionBuffer)
+  gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+  // Set a rectangle the same size as the image.
+  setRectangle(gl, 0, 0, image.width, image.height);
+
+  // provide texture coordinates for the rectangle.
+  var texcoordBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, texcoordBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+      0.0,  0.0,
+      1.0,  0.0,
+      0.0,  1.0,
+      0.0,  1.0,
+      1.0,  0.0,
+      1.0,  1.0,
+  ]), gl.STATIC_DRAW);
+
+  // Create a texture.
+  var texture = gl.createTexture();
+  gl.bindTexture(gl.TEXTURE_2D, texture);
+
+  // Set the parameters so we can render any size image.
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+
+  // Upload the image into the texture.
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
+
+  // lookup uniforms
+  var resolutionLocation = gl.getUniformLocation(program, "u_resolution");
+
+  webglUtils.resizeCanvasToDisplaySize(gl.canvas);
+
+  // Tell WebGL how to convert from clip space to pixels
+  gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+
+  // Clear the canvas
+  gl.clearColor(0, 0, 0, 0);
+  gl.clear(gl.COLOR_BUFFER_BIT);
+
+  // Tell it to use our program (pair of shaders)
+  gl.useProgram(program);
+
+  // Turn on the position attribute
+  gl.enableVertexAttribArray(positionLocation);
+
+  // Bind the position buffer.
+  gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+
+  // Tell the position attribute how to get data out of positionBuffer (ARRAY_BUFFER)
+  var size = 2;          // 2 components per iteration
+  var type = gl.FLOAT;   // the data is 32bit floats
+  var normalize = false; // don't normalize the data
+  var stride = 0;        // 0 = move forward size * sizeof(type) each iteration to get the next position
+  var offset = 0;        // start at the beginning of the buffer
+  gl.vertexAttribPointer(
+      positionLocation, size, type, normalize, stride, offset);
+
+  // Turn on the teccord attribute
+  gl.enableVertexAttribArray(texcoordLocation);
+
+  // Bind the position buffer.
+  gl.bindBuffer(gl.ARRAY_BUFFER, texcoordBuffer);
+
+  // Tell the position attribute how to get data out of positionBuffer (ARRAY_BUFFER)
+  var size = 2;          // 2 components per iteration
+  var type = gl.FLOAT;   // the data is 32bit floats
+  var normalize = false; // don't normalize the data
+  var stride = 0;        // 0 = move forward size * sizeof(type) each iteration to get the next position
+  var offset = 0;        // start at the beginning of the buffer
+  gl.vertexAttribPointer(
+      texcoordLocation, size, type, normalize, stride, offset);
+
+  // set the resolution
+  gl.uniform2f(resolutionLocation, gl.canvas.width, gl.canvas.height);
+
+  // Draw the rectangle.
+  var primitiveType = gl.TRIANGLES;
+  var offset = 0;
+  var count = 6;
+  gl.drawArrays(primitiveType, offset, count);
+}
+
+function setRectangle(gl, x, y, width, height) {
+  var x1 = x;
+  var x2 = x + width;
+  var y1 = y;
+  var y2 = y + height;
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+     x1, y1,
+     x2, y1,
+     x1, y2,
+     x1, y2,
+     x2, y1,
+     x2, y2,
+  ]), gl.STATIC_DRAW);
+}
+
+main();
+			</code>
+		</pre>
+    </div>
+</section>
+
+<section class="slide" id="webgl-libs">
+    <div>
+        <h2>Инструменты</h2>
+        <ul>
+            <li><a href="https://threejs.org/examples/" target="_blank">THREEJS</a></li>
+            <li><a href="https://www.blend4web.com/doc/en/about.html" target="_blank">Blend4Web</a></li>
+            <li><a href="https://www.babylonjs.com/" target="_blank">Babylon.js</a></li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="what">
+    <div>
+        <h2>Итоги</h2>
+        <div class="next">
+            <h3>Выбирайте инструмент под задачу</h3>
+            <ul>
+                <li>GIF</li>
+                <li>CSS transitions/animations</li>
+                <li>JS animations</li>
+                <li>SVG</li>
+                <li>Canvas 2D</li>
+                <li>Canvas WebGL</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="slide" id="practise">
+    <div>
+        <h2>Практика</h2>
+        <h3>Какие технологии стоит использовать для создания следующих анимаций?</h3>
+    </div>
+</section>
+
+<section class="slide" id="practise-example-preloader">
+    <link rel="stylesheet" href="css/practise-example-preloader.css">
+    <div class="center">
+        <h2>Прелоадер</h2>
+        <div class="loading ib"></div>
+        <p class="next">CSS Keyframes</p>
+    </div>
+</section>
+
+<section class="slide" id="practise-example-app-demo">
+    <style>
+        #practise-example-app-demo video {
+            height: 70%;
+        }
+    </style>
+    <div class="center">
+        <h2>Демонстрация работы приложения</h2>
+        <video src="pictures/transport.mp4" pip="false" loop></video>
+        <p class="next">HTML5 Video</p>
+    </div>
+</section>
+
+<section class="slide" id="practise-example-population">
+    <style>
+        #practise-example-population video {
+            height: 70%;
+        }
+    </style>
+    <div class="center">
+        <h2>Визуализация плотности населения</h2>
+        <video src="pictures/population.mp4" pip="false" loop></video>
+        <p class="next">SVG</p>
+    </div>
+</section>
+
+<section class="slide" id="practise-example-rollover">
+    <style>
+        #practise-example-rollover .rollover {
+            width: 800px;
+            height: 600px;
+            position: relative;
+            border: 8px solid #eee;
+            cursor: pointer;
+            margin: auto;
+        }
+
+        #practise-example-rollover .rollover div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+        }
+
+        #practise-example-rollover .rollover_1 {
+            background: url('pictures/bi2-2.jpg') 0 0 no-repeat;
+        }
+
+        #practise-example-rollover .rollover_2 {
+            background: url('pictures/bi2.jpg') 0 0 no-repeat;
+            -webkit-transition: -webkit-mask-position 2s ease;
+            -webkit-mask-size: 290%;
+            -webkit-mask-image: -webkit-gradient(linear, left top, right top, color-stop(0.00, rgba(0,0,0,1)), color-stop(0.35, rgba(0,0,0,1)), color-stop(0.50, rgba(0,0,0,0)), color-stop(0.75, rgba(0,0,0,0)), color-stop(1.00, rgba(0,0,0,0)));
+        }
+
+        #practise-example-rollover .rollover_2:hover {
+            -webkit-mask-position: 90% -300px;
+        }
+    </style>
+    <div class="center">
+        <h2>Эффект смены при наведении</h2>
+        <div class="rollover">
+            <div class="rollover_1"></div>
+            <div class="rollover_2"></div>
+        </div>
+        <p class="next">CSS Masks + CSS Transitions</p>
+    </div>
+</section>
+
+<section class="slide" id="practise-example-gallery">
+    <style>
+        #practise-example-gallery iframe {
+            width: 50%;
+            height: 60%;
+        }
+    </style>
+    <div class="center">
+        <h2>Эффектное появление в галерее</h2>
+        <iframe src="https://www.sarasoueidan.com/demos/css-svg-clipping/html-img-clipped-with-css-svg-clippath-animated/" frameborder="0"></iframe>
+        <p class="next">CSS Clip Path + Animated SVG Path (SMIL/JS)</p>
+    </div>
+</section>
+
+<section class="slide" id="practise-example-webgl">
+    <style>
+        #practise-example-webgl iframe {
+            width: 60%;
+            height: 60%;
+        }
+    </style>
+    <div class="center">
+        <h2>Разрывание фото</h2>
+        <iframe src="examples/pages/webgl.html" frameborder="0"></iframe>
+        <p class="next">WebGL</p>
+    </div>
+</section>
+
+<section class="slide section cover end" id="the-end">
+    <div>
+        <h2>Спасибо за внимание</h2>
+        <div class="authors">
+            <p class="name">
+                Анастасия Пелевина
+            </p>
+        </div>
+    </div>
+</section>
+
+<div class="progress"></div>
+
+<script src="node_modules/shower-core/shower.min.js"></script>
+<script src="js/vendors/attrchange.js"></script>
+<script src="js/main.js"></script>
+<link rel="stylesheet" href="themes/highlight/styles/hanky.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="themes/highlight/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
