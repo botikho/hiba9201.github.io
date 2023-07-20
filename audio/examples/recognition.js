@@ -45,7 +45,7 @@ recognition.onresult = function(event) {
 			break;
 		default:
 			result.classList.remove('result_yandex');
-			result.innerHTML = 'Что, что, простите?' + ' ' + speech;
+			result.innerHTML = 'Что, что, простите?';
 	}
 };
 
