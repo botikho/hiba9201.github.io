@@ -5,3 +5,5 @@
 
 *.md
 puppeteer
+
+node_modules
