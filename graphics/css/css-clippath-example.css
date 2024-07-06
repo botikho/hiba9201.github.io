@@ -17,9 +17,10 @@
 
 #css-clipping-example .foreground {
     width: 900px;
-    height: auto;
+    height: 100%;
     border-radius: 20px;
-    filter: blur(20px);
+    backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, 0.1);
 
     position: absolute;
     top: 0;
