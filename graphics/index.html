@@ -76,6 +76,10 @@
                 </li>
                 <li>
                     <p class="toc-number">03</p>
+                    <p class="toc-text">Интерактивная отрисовка</p>
+                </li>
+                <li>
+                    <p class="toc-number">04</p>
                     <p class="toc-text">Когда что применять</p>
                 </li>
             </ul>
@@ -89,38 +93,6 @@
     </div>
 </section>
 
-<!-- <section class="slide cover second" id="css">
-    <div>
-        <h2>Что есть «из&nbsp;коробки»?</h2>
-    </div>
-</section> -->
-
-<!-- <section class="slide" id="pixel">
-    <div>
-        <h2>Пиксель</h2>
-        <ul>
-            <li>Пиксель — цветная ячейка на дисплее устройства.</li>
-            <li>Cостоит из красного, зеленого и синего субпикселя</li>
-        </ul>
-        <p style="text-align: center; margin-top: 60px">
-            <img src="pictures/01-images/pixel.jpeg" width="900" alt="">
-        </p>
-    </div>
-</section> -->
-
-<!-- <section class="slide" id="color">
-    <div>
-        <h2>Цвет</h2> -->
-        <!-- TODO -->
-        <!-- <ul>
-            <li>Пиксель — цветная ячейка на дисплее устройства.</li>
-            <li>Cостоит из красного, зеленого и синего субпикселя</li>
-        </ul> -->
-        <!-- <p style="text-align: center; margin-top: 60px">
-            <img src="pictures/01-images/pixel.jpeg" width="900" alt="">
-        </p> -->
-    <!-- </div>
-</section> -->
 
 <section class="slide" id="images-types">
     <div>
@@ -298,8 +270,22 @@
         <h2>GIF — Недостатки</h2>
         <ul style="max-width: 80ch;">
             <li>Очень тяжелый (простая анимация может весить десятки мегабайт) (гиф-анимация может весить 8 Мб против 800 Кб аналогичного видео-файла)</li>
-            <li>Скудные возможности в цветопередачи (256 уникальных цветов на файл)</li>
+            <li>Отсутствие контроля анимации</li>
+            <li>Скудные (по современным меркам) возможности в цветопередачи (256 уникальных цветов на файл)</li>
             <li>Плохое качество изображений</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="images-formats-tips">
+    <div>
+        <h2>Практические советы</h2>
+        <ul style="max-width: 80ch;">
+            <li>Для любых изображений в универсальных условиях — JPEG</li>
+            <li>Макеты, иконки, логотипы, графику, простые иллюстрации — PNG (или SVG для вектора)</li>
+            <li>WebP — как вспомогательный формат для современных браузеров в целях экономии трафика и ускорения загрузки</li>
+            <li>GIF — только для анимации в редких исключениях</li>
+            <li>Не забывайте про оптимизацию</li>
         </ul>
     </div>
 </section>
@@ -315,11 +301,12 @@
 <section class="slide" id="svg-describe">
     <div>
         <h2>SVG</h2>
-        <p><b>Scalable Vector Graphics</b> — язык разметки векторной графики, созданный W3C, подмножество языка XML. Предназначен для описания векторной и смешанной (векторно-растровой) двухмерной графики.</p>
         <ul style="max-width: 80ch;">
+            <li><b>Scalable Vector Graphics</b> — язык разметки векторной графики, созданный W3C</li>
+            <li>Предназначен для описания векторной и смешанной (векторно-растровой) двухмерной графики</li>
             <li>Является человеко-читаемым XML-форматом</li>
             <li>Поддерживается любым браузером, (хотя иногда бывают нюансы и особенности, лучше уточнять поддержку браузерами)</li>
-            <li>Поддерживает анимацию и интерактивность</li>
+            <li>Поддерживает анимацию и интерактивность</li>
         </ul>
     </div>
 </section>
@@ -340,7 +327,7 @@
     </div>
 </section>
 
-<section class="slide" id="svg-insert">
+<!-- <section class="slide" id="svg-insert">
     <div>
         <h2>Встраивание</h2>
         <ul>
@@ -352,7 +339,7 @@
             <li>шрифт</li>
         </ul>
     </div>
-</section>
+</section> -->
 
 <section class="slide" id="svg-drawing">
     <div>
@@ -508,7 +495,37 @@
 </section>
 
 
-<section class="slide cover  seventh" id="images-tools">
+<section class="slide" id="images-integration">
+    <div>
+        <h2>Встраивание изображений в HTML</h2>
+        <ul>
+            <li>Теги &lt;embed&gt;, &lt;object&gt;, &lt;iframe&gt;</li>
+            <li>Теги &lt;img&gt;, &lt;picture&gt;</li>
+            <li>Теги &lt;svg&gt;</li>
+            <li>background-image: url() в CSS</li>
+            <li>dataURI</li>
+            <li>шрифт</li>
+        </ul>
+    </div>
+</section>
+
+<!-- SUGGEST: Рассказать подробнее про встраивание изображений в HTML -->
+
+<!-- <section class="slide" id="images-integration">
+    <div>
+        <h2>Тег img</h2>
+        <ul>
+            <li>Универсальная возможность отрисовать изображение</li>
+            <li>Поддерживается всеми браузерами</li>
+            <li>Ссылка на изображение вставляется через аттрибут src</li>
+            <li>Более современные браузеры поддерживают аттрибут srcset, через который можно указать серию различных версий изображения разных форматов и размеров</li>
+            <li>Поддерживает как растровые форматы, так и векторные (svg) (но без возможности их стилизации)</li>
+        </ul>
+    </div>
+</section> -->
+
+
+<section class="slide cover seventh" id="images-tools">
     <div>
         <h2>Инструменты для работы с изображениями</h2>
     </div>
@@ -517,9 +534,8 @@
 <section class="slide" id="images-tools-editors">
     <div>
         <h2>Редакторы</h2>
-        <p>Инструменты, которые позволяют создавать, редактировать и обрабатывать изображения</p>
-        <p>Наиболее популярные:</p>
         <ul>
+            <li>Отдельное ПО, которое позволяет создавать, редактировать и обрабатывать изображения</li>
             <li>Figma (для отрисовки простой векторной графики и интерфейсов)</li>
             <li>Adobe Photoshop (растровые изображения, работа с фото)</li>
             <li>Adobe Illustrator (векторные изображения и графика)</li>
@@ -543,16 +559,13 @@
         <h2>Оптимизаторы</h2>
         <ul>
             <li>Инструменты, которые позволяют оптимизировать изображения и уменьшать их размер (с потерей или без потери качества)</li>
-            <li>https://imageoptim.com/ — для Mac</li>
+            <li>https://imageoptim.com/ — отличный оптимизатор для Mac</li>
             <li>https://squoosh.app/ – онлайн-инструмент для растровых изображений</li>
             <li>https://jakearchibald.github.io/svgomg/ – онлайн-инструмент для работы с svg</li>
             <li>https://github.com/svg/svgo/ – консольная утилита для svg</li>
         </ul>
     </div>
 </section>
-
-
-
 
 <!--  -->
 
@@ -562,7 +575,7 @@
 
 <section class="slide toc" id="css-features">
     <div>
-        <h2>Что есть «из&nbsp;коробки»?</h2>
+        <h2>Браузерная постобработка</h2>
         <div class="toc-wrapper">
             <ul class="double">
                 <li>
@@ -1951,7 +1964,7 @@
 
 <section class="slide cover fifth" id="canvas">
     <div>
-        <h2>Canvas</h2>
+        <h2>Интерактивная отрисовка</h2>
     </div>
 </section>
 
