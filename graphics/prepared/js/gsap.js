@@ -1,11 +1,11 @@
 /*external js
+ https://cdn.skypack.dev/gsap@3.5.1
  http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js
  http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js
  */
 
 window.onload = function() {
-	var logo = document.getElementById("logo"),
-		playBtn = document.getElementById("playBtn"),
+	var playBtn = document.getElementById("playBtn"),
 		pauseBtn = document.getElementById("pauseBtn"),
 		resumeBtn = document.getElementById("resumeBtn"),
 		reverseBtn = document.getElementById("reverseBtn"),
@@ -16,7 +16,7 @@ window.onload = function() {
 		timeScaleNormalBtn = document.getElementById("timeScaleNormalBtn"),
 		timeScaleFastBtn = document.getElementById("timeScaleFastBtn"),
 		restartBtn = document.getElementById("restartBtn"),
-		tween = TweenLite.to(logo, 3, {left:"600px", rotation:"360deg", ease:Linear.easeNone, paused: true});
+		tween = gsap.to('#logo', { x: 600, rotation: 360, duration: 3, ease: "none", paused: true });
 
 	playBtn.onclick = function() {
 		//Play the tween forward from the current position.

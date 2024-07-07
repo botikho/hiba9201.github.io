@@ -330,11 +330,14 @@ a {
     box-sizing: border-box;
 }
 
+.slide a {
+    color: #5a50e2;
+}
+
 .slide .extra-link {
     position: absolute;
     bottom: 0;
     left: 0;
-    color: #5a50e2;
     font-size: 32px;
 }
 
@@ -469,6 +472,55 @@ table.b-table_border_none td
 .slide.toc .toc-text {
     width: 533px;
 }
+
+.slide .timeline {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    counter-reset: timeline;
+}
+
+.slide .timeline > li {
+    text-indent: initial !important;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.slide .timeline > li::before {
+    counter-increment: timeline;
+    content: "0" counter(timeline);
+    height: 120px;
+    font-size: 80px;
+    font-weight: bold;
+    color: #5a50e2;
+    text-align: left;
+    border-bottom: solid 1px #AECCDA;
+    width: 100%;
+    background: none;
+    margin: 0;
+}
+
+.slide .timeline > li > .content {
+    padding-right: 20%;
+    padding-top: 50px;
+
+    position: relative;
+}
+
+.slide .timeline > li > .content::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #5a50e2;
+}
+
 .slide.full-image > img {
     width: 100%;
     height: 100%;
@@ -694,11 +746,11 @@ table.b-table_border_none td
     }
     .shower.list .slide:hover {
         box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.1),
-            0 20px 50px rgba(0, 0, 0, 0.3);
+        0 20px 50px rgba(0, 0, 0, 0.3);
     }
     .shower.list .slide.active {
         box-shadow: 0 0 0 1px #2c5f97, 0 0 0 20px #3878be,
-            0 20px 50px rgba(0, 0, 0, 0.3);
+        0 20px 50px rgba(0, 0, 0, 0.3);
     }
     .shower.list .slide.active:after {
         color: #fc0;
@@ -758,10 +810,11 @@ table.b-table_border_none td
     }
 
     .shower.full .slide .next {
-        visibility: hidden;
+        opacity: 0;
+        transition: opacity 150ms linear;
     }
     .shower.full .slide .next.active {
-        visibility: visible;
+        opacity: 1;
     }
     .shower.full .slide .grow.slide.blockquote,
     .shower.full .slide .grow.slide.section,

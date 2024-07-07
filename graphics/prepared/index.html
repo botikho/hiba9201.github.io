@@ -44,7 +44,7 @@
 
 <header class="caption">
     <h1>Мультимедиа. Графические эффекты.</h1>
-    <p>Анастасия Пелевина, <a href="https://yandex.ru/">Яндекс</a></p>
+    <p>Анастасия Пелевина, <a href="https://ya.ru/" target="_blank">Яндекс</a></p>
 </header>
 
 <section class="slide cover main">
@@ -96,30 +96,22 @@
             <ul class="double">
                 <li>
                     <p class="toc-number">01</p>
-                    <p class="toc-text">Скругления</p>
+                    <p class="toc-text">Скругления, границы, градиенты, тени</p>
                 </li>
                 <li>
                     <p class="toc-number">02</p>
-                    <p class="toc-text">Градиенты</p>
-                </li>
-                <li>
-                    <p class="toc-number">03</p>
-                    <p class="toc-text">Тени</p>
-                </li>
-                <li>
-                    <p class="toc-number">04</p>
                     <p class="toc-text">Фильтры</p>
                 </li>
                 <li>
-                    <p class="toc-number">05</p>
+                    <p class="toc-number">03</p>
                     <p class="toc-text">Обрезка</p>
                 </li>
                 <li>
-                    <p class="toc-number">06</p>
+                    <p class="toc-number">04</p>
                     <p class="toc-text">Маски</p>
                 </li>
                 <li>
-                    <p class="toc-number">07</p>
+                    <p class="toc-number">05</p>
                     <p class="toc-text">Эффекты наложения</p>
                 </li>
             </ul>
@@ -310,16 +302,13 @@
     <div>
         <h2>Обрезка</h2>
         <p>
-            <a href="http://bennettfeely.com/clippy/"><img src="pictures/clippy.jpg" alt=""></a>
+            <a href="http://bennettfeely.com/clippy/" target="_blank"><img src="pictures/clippy.jpg" alt=""></a>
         </p>
         <a class="extra-link" href="http://bennettfeely.com/clippy/" target="_blank">CSS clip-path maker</a>
     </div>
 </section>
 
 <section class="slide" id="css-clipping-example">
-    <style>
-
-    </style>
     <link rel="stylesheet" href="css/css-clippath-example.css">
     <div>
         <h2>Обрезка: слайдер</h2>
@@ -891,9 +880,8 @@
             <li><i>width</i>, <i>height</i>, <i>border-width</i>, <i>margin</i>, <i>padding</i></li>
             <li><i>font-size</i>, <i>line-height</i>, <i>letter-spacing</i>, <i>word-spacing</i></li>
             <li><i>top</i>, <i>right</i>, <i>bottom</i>, <i>left</i></li>
-            <li><i>opacity</i></li>
+            <li><i>opacity, visibility*</i></li>
         </ul>
-        <a class="extra-link" href="http://www.w3.org/TR/css3-transitions/#animatable-properties">Полный список свойств</a>
     </div>
 </section>
 
@@ -902,9 +890,9 @@
         <h2>CSS анимации</h2>
         <ul>
             <li>Просты</li>
-            <li>Оптимизированы</li>
+            <li>Оптимизированы*</li>
             <li>Синхронизируются с частотой обновления экрана</li>
-            <li>Неконтролируемые: только пауза и запуск</li>
+            <li>Неконтролируемые: только запуск и пауза</li>
         </ul>
     </div>
 </section>
@@ -998,7 +986,7 @@
         <h2>JS анимации: библиотеки</h2>
         <ul>
             <li>jQuery</li>
-            <li>Velocity</li>
+            <li>Lottie</li>
             <li>GreenSock</li>
         </ul>
     </div>
@@ -1069,8 +1057,8 @@
     <div>
         <h2>JS анимации: GSAP</h2>
         <pre>
-		<code>const tween = TweenLite.to(logo, 3, {</code>
-		<code>  left:'600px', rootation:'360deg', ease:Linear.easeNone</code>
+		<code>const tween = gsap.to('#logo', {</code>
+		<code>   x: 600, rotation: 360, duration: 3, ease: "none"</code>
 		<code>});</code>
 		</pre>
         <div id="demo">
@@ -1083,12 +1071,13 @@
             <input type="button" id="reverseBtn" value="reverse()">
             <input type="button" id="playFromBtn" value="play(2)">
             <input type="button" id="reverseFromBtn" value="reverse(1)"><br/>
-            <input type="button" id="seekBtn" value="seek(3)">
+            <input type="button" id="seekBtn" value="seek(2)">
             <input type="button" id="timeScaleSlowBtn" value="timeScale(0.5)">
             <input type="button" id="timeScaleNormalBtn" value="timeScale(1)">
             <input type="button" id="timeScaleFastBtn" value="timeScale(2)">
             <input type="button" id="restartBtn" value="restart()">
         </div>
+        <a class="extra-link" href="https://greensock.com/cheatsheet/" target="_blank">GSAP Cheat Sheet</a>
     </div>
 </section>
 
@@ -1118,7 +1107,7 @@
             <li>Собственный поток (как в CSS)</li>
             <li>Полный контроль (как в JS)</li>
         </ul>
-        <a class="extra-link" href="https://w3c.github.io/web-animations/">Спецификация</a>
+        <a class="extra-link" href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API" target="_blank">Web Animations API MDN</a>
     </div>
 </section>
 
@@ -1126,16 +1115,16 @@
     <div>
         <h2>Web Animations: синтаксис</h2>
         <pre>
-            <code>var player = element.animate([</code>
-            <code> {cssProperty: value0},</code>
-            <code> {cssProperty: value1},</code>
-            <code> {cssProperty: value2},</code>
-            <code>//...</code>
-            <code>], {</code>
-            <code> duration: timeInMs,</code>
-            <code> iterations: iterationCount,</code>
-            <code> delay: delayValue</code>
-            <code>});</code>
+            <code class="language-javascript">const player = element.animate([</code>
+            <code class="language-javascript"> {cssProperty: value0},</code>
+            <code class="language-javascript"> {cssProperty: value1},</code>
+            <code class="language-javascript"> {cssProperty: value2},</code>
+            <code class="language-javascript"> //...</code>
+            <code class="language-javascript">], {</code>
+            <code class="language-javascript"> duration: timeInMs,</code>
+            <code class="language-javascript"> iterations: iterationCount,</code>
+            <code class="language-javascript"> delay: delayValue</code>
+            <code class="language-javascript">});</code>
 		</pre>
     </div>
 </section>
@@ -1144,13 +1133,12 @@
     <div>
         <h2>Web Animations: синтаксис</h2>
         <pre>
-            <code>const animation = new Animation(target,</code>
-            <code>  [{transform: 'translateX(0)'}, {transform: 'translateX(240px)'}], 1000);</code>
-            <code>const player = document.timeline.play(animation);</code>
-            <code>...</code>
+            <code>const player = /* создаем плеер */;</code>
+            <code> </code>
             <code>player.play();</code>
             <code>player.pause();</code>
             <code>player.finish();</code>
+            <code>player.cancel();</code>
             <code>player.reverse();</code>
             <code>player.seek();</code>
 		</pre>
@@ -1388,7 +1376,7 @@
                 <animate attributeName="height" from="0px" to="250px" dur="1s" begin="click" />
             </rect>
         </svg>
-        <a class="extra-link" href="https://www.w3.org/TR/2008/REC-SMIL3-20081201/smil-animation.html" target="blank">SMIL 3.0 Animation</a>
+        <a class="extra-link" href="https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_animation_with_SMIL" target="blank">SMIL Animation</a>
     </div>
 </section>
 
@@ -1403,6 +1391,7 @@
             <li><a href="http://dmitrybaranovskiy.github.io/raphael/" target="_blank">Raphaël</a></li>
             <li><a href="http://snapsvg.io/" target="_blank">Snap.svg</a></li>
             <li><a href="http://d3js.org/" target="_blank">D3.js</a></li>
+            <li><a href="https://greensock.com/" target="_blank">GSAP</a></li>
         </ul>
     </div>
 </section>
@@ -1766,9 +1755,10 @@
         #webgl-speed-video video {
             min-width: 100%;
             min-height: 100%;
+            width: 100%;
         }
     </style>
-    <video src="pictures/gpu-video.mp4" pip="false" loop></video>
+    <video src="pictures/gpu-video.mov" muted loop></video>
 </section>
 
 <section class="slide" id="webgl-speed">
@@ -2039,28 +2029,24 @@ main();
     </div>
 </section>
 
-<section class="slide section" id="what">
+<section class="slide" id="what">
     <div>
         <h2>Итоги</h2>
+        <div class="next">
+            <h3>Выбирайте инструмент под задачу</h3>
+            <ul>
+                <li>GIF</li>
+                <li>CSS transitions/animations</li>
+                <li>JS animations</li>
+                <li>SVG</li>
+                <li>Canvas 2D</li>
+                <li>Canvas WebGL</li>
+            </ul>
+        </div>
     </div>
 </section>
 
-<section class="slide" id="what-2">
-    <div>
-        <h2>Итоги</h2>
-        <h3>Выбирайте инструмент под задачу</h3>
-        <ul>
-            <li>GIF</li>
-            <li>CSS transitions/animations</li>
-            <li>JS animations</li>
-            <li>SVG</li>
-            <li>Canvas 2D</li>
-            <li>Canvas WebGL</li>
-        </ul>
-    </div>
-</section>
-
-<section class="slide section" id="practise">
+<section class="slide" id="practise">
     <div>
         <h2>Практика</h2>
         <h3>Какие технологии стоит использовать для создания следующих анимаций?</h3>
@@ -2085,7 +2071,7 @@ main();
     <div class="center">
         <h2>Демонстрация работы приложения</h2>
         <video src="pictures/transport.mp4" pip="false" loop></video>
-        <p class="next">HTML5 Video <span class="next">(GIF на планшетах/мобильных)</span></p>
+        <p class="next">HTML5 Video</p>
     </div>
 </section>
 
@@ -2192,6 +2178,7 @@ main();
 <script src="js/vendors/attrchange.js"></script>
 <script src="js/main.js"></script>
 <link rel="stylesheet" href="themes/highlight/styles/hanky.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="themes/highlight/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 

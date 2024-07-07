@@ -49,7 +49,7 @@
 
 <section class="slide cover main">
     <div>
-        <h2>Мультимедиа. Графические эффекты.</h2>
+        <h2>Мультимедиа. Графика.</h2>
         <div class="authors">
             <p class="name">
                 Анастасия Пелевина
@@ -68,11 +68,11 @@
             <ul>
                 <li>
                     <p class="toc-number">01</p>
-                    <p class="toc-text">Эффекты «из коробки»</p>
+                    <p class="toc-text">Изображения</p>
                 </li>
                 <li>
                     <p class="toc-number">02</p>
-                    <p class="toc-text">Техники анимаций</p>
+                    <p class="toc-text">Анимация</p>
                 </li>
                 <li>
                     <p class="toc-number">03</p>
@@ -85,9 +85,480 @@
 
 <section class="slide cover second" id="css">
     <div>
-        <h2>Что есть «из&nbsp;коробки»?</h2>
+        <h2>Изображения</h2>
     </div>
 </section>
+
+<!-- <section class="slide cover second" id="css">
+    <div>
+        <h2>Что есть «из&nbsp;коробки»?</h2>
+    </div>
+</section> -->
+
+<!-- <section class="slide" id="pixel">
+    <div>
+        <h2>Пиксель</h2>
+        <ul>
+            <li>Пиксель — цветная ячейка на дисплее устройства.</li>
+            <li>Cостоит из красного, зеленого и синего субпикселя</li>
+        </ul>
+        <p style="text-align: center; margin-top: 60px">
+            <img src="pictures/01-images/pixel.jpeg" width="900" alt="">
+        </p>
+    </div>
+</section> -->
+
+<!-- <section class="slide" id="color">
+    <div>
+        <h2>Цвет</h2> -->
+        <!-- TODO -->
+        <!-- <ul>
+            <li>Пиксель — цветная ячейка на дисплее устройства.</li>
+            <li>Cостоит из красного, зеленого и синего субпикселя</li>
+        </ul> -->
+        <!-- <p style="text-align: center; margin-top: 60px">
+            <img src="pictures/01-images/pixel.jpeg" width="900" alt="">
+        </p> -->
+    <!-- </div>
+</section> -->
+
+<section class="slide" id="images-types">
+    <div>
+        <h2>Типы изображений</h2>
+        <ul>
+            <li>Растровые</li>
+            <li>Векторные</li>
+        </ul>
+    </div>
+</section>
+
+
+<section class="slide" id="images-raster">
+    <div>
+        <h2>Растровая графика</h2>
+        <ul style="max-width: 80ch;">
+            <li>Растр — сетка фиксированного размера,каждая ячейка которой хранит информацию о цвете</li>
+        </ul>
+        <p style="text-align: center; margin-top: 128px">
+            <img src="pictures/01-images/disk-pixelated.png" width="512" alt="">
+        </p>
+    </div>
+</section>
+
+<section class="slide" id="images-vector">
+    <div>
+        <h2>Векторная графика</h2>
+        <ul style="max-width: 80ch;">
+            <li>Векторное изображение — набор инструкций о том, как нужно отрисовать изображение</li>
+        </ul>
+        <p style="text-align: center; margin-top: 60px">
+            <img src="pictures/01-images/disk-vector.png" width="640" alt="">
+        </p>
+    </div>
+</section>
+
+<section class="slide" id="images-formats">
+    <div>
+        <h2>Форматы растровых изображений</h2>
+        <ul style="max-width: 80ch;">
+            <li>JPEG</li>
+            <li>GIF</li>
+            <li>PNG</li>
+            <li>WEBP</li>
+            <li>AVIF</li>
+            <li>HEIC</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="images-formats-jpeg">
+    <div>
+        <h2>JPEG</h2>
+        <ul style="max-width: 80ch;">
+            <li>Наиболее популярный формат изображений</li>
+            <li>По умолчанию является форматом со сжатием с потерями</li>
+        </ul>
+        <p style="text-align: center; margin-top: 60px">
+            <img src="pictures/01-images/jpegs-2.png" width="1280" alt="">
+        </p>
+    </div>
+</section>
+
+<section class="slide" id="images-formats-jpeg-pros">
+    <div>
+        <h2>JPEG — Преимущества</h2>
+        <ul style="max-width: 80ch;">
+            <li>Универсальная поддержка большим количеством старых и новых устройств, а также всеми старыми и новыми браузерами</li>
+            <li>Отлично подходит для хранения фотографий и любых изображений в тех условиях, где нет необходимости сохранить исходное качество изображения</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="images-formats-jpeg-cons">
+    <div>
+        <h2>JPEG — Недостатки</h2>
+        <ul style="max-width: 80ch;">
+            <li>Не гарантирует сохранность данных</li>
+            <li>Не поддерживает анимацию</li>
+            <li>Не поддерживает прозрачность</li>
+            <li>Существуют более современные и эффективные форматы</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="images-formats-png">
+    <div>
+        <h2>PNG</h2>
+        <ul style="max-width: 80ch;">
+            <li>Популярный формат для передачи изображения без потерь</li>
+            <li>Поддерживается всеми браузерами, в том числе сильно устаревшими</li>
+            <li>Имеет эффективные методы сжатия простой графики, из-за чего очень популярен для хранения в нем иконок, интерфейсных элементов или простой графики</li>
+            <li>Поддерживает прозрачность</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="images-formats-png-cons">
+    <div>
+        <h2>PNG — Недостатки</h2>
+        <ul style="max-width: 80ch;">
+            <li>Слишком тяжелый для хранения в нем фотографий (и любых изображений с большим количеством уникальных цветов)</li>
+            <li>Не умеет в анимацию (но существует APNG)</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="images-formats-webp">
+    <div>
+        <h2>WebP</h2>
+        <ul style="max-width: 80ch;">
+            <li>Современный формат активно приобретающий свою популярность. Разработан в Google.</li>
+            <li>Поддерживается только современными браузерами</li>
+            <li>Имеет современные методы сжатия, поэтому очень хорошо сжимается и мало весит</li>
+            <li>Умеет в сжатие как с потерями, так и без потерь</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="images-formats-webp-cons">
+    <div>
+        <h2>WebP — Недостатки</h2>
+        <ul style="max-width: 80ch;">
+            <li>Требует хранения рядом альтернативных форматов, тк пока не везде поддерживается</li>
+            <li>До сих пор не все графические редакторы умеют сохранять файлы в WebP</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="images-formats-heif">
+    <div>
+        <h2>HEIF</h2>
+        <ul style="max-width: 80ch;">
+            <li>Еще один современный формат файлов для хранения отдельных изображений или их последовательностей (медиаконтейнер). Разработан MPEG.</li>
+            <li>Используется по умолчанию в современных iOS как формат по умолчанию для фотографий</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="images-formats-heif-cons">
+    <div>
+        <h2>HEIF — Недостатки</h2>
+        <ul style="max-width: 80ch;">
+            <li>Крайне плохая браузерная поддержка</li>
+            <li>О формате стоит знать для понимания почему фотографии, сделанные на iPhone, нельзя без конвертации показать в браузере</li>
+            <!-- TODO caniuse -->
+        </ul>
+    </div>
+</section>
+
+<!-- TODO Avif -->
+
+<section class="slide" id="images-formats-gif">
+    <div>
+        <h2>GIF (гифки)</h2>
+        <ul style="max-width: 80ch;">
+            <li>Устаревший, но всё еще популярный формат для анимированных изображений</li>
+            <li>Каждый кадр анимации хранит в себе как отдельное изображение</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="images-formats-gif-pros">
+    <div>
+        <h2>GIF — Преимущества</h2>
+        <ul style="max-width: 80ch;">
+            <li>Простой способ передать анимацию</li>
+            <li>Миллионы веселых картинок и анимаций, которые так популярны в месенджерах</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="images-formats-gif-cons">
+    <div>
+        <h2>GIF — Недостатки</h2>
+        <ul style="max-width: 80ch;">
+            <li>Очень тяжелый (простая анимация может весить десятки мегабайт) (гиф-анимация может весить 8 Мб против 800 Кб аналогичного видео-файла)</li>
+            <li>Скудные возможности в цветопередачи (256 уникальных цветов на файл)</li>
+            <li>Плохое качество изображений</li>
+        </ul>
+    </div>
+</section>
+
+
+<section class="slide cover fourth" id="images-formats-vector">
+    <div>
+        <h2>Векторная графика</h2>
+    </div>
+</section>
+
+
+<section class="slide" id="svg-describe">
+    <div>
+        <h2>SVG</h2>
+        <p><b>Scalable Vector Graphics</b> — язык разметки векторной графики, созданный W3C, подмножество языка XML. Предназначен для описания векторной и смешанной (векторно-растровой) двухмерной графики.</p>
+        <ul style="max-width: 80ch;">
+            <li>Является человеко-читаемым XML-форматом</li>
+            <li>Поддерживается любым браузером, (хотя иногда бывают нюансы и особенности, лучше уточнять поддержку браузерами)</li>
+            <li>Поддерживает анимацию и интерактивность</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="svg-features">
+    <div>
+        <h2>SVG</h2>
+        <ul style="max-width: 80ch;">
+            <li>Масштабируется</li>
+            <li>Четкий на ретине</li>
+            <li>Можно вставлять тег-svg прямо в HTML</li>
+            <li>Существует возможность настраивать стили svg-элементов через CSS</li>
+            <li>Можно написать руками</li>
+            <li>Переиспользуемые компоненты</li>
+            <li>Доступен как DOM для CSS — существует возможность настраивать стили svg-элементов через CSS</li>
+            <li>...и для и JS — можно работать с svg через браузерный скрипт</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="svg-insert">
+    <div>
+        <h2>Встраивание</h2>
+        <ul>
+            <li>&lt;embed&gt;, &lt;object&gt;, &lt;iframe&gt;</li>
+            <li>&lt;img&gt;</li>
+            <li>background-image: url()</li>
+            <li>dataURI</li>
+            <li>SVG в HTML</li>
+            <li>шрифт</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="svg-drawing">
+    <div>
+        <h2>Рисование</h2>
+        <div class="demo">
+            <div class="controls">
+                <button>Линия</button>
+                <button>Прямоугольник</button>
+                <button>Круг</button>
+                <button>Эллипс</button>
+                <button>Многоугольник</button>
+                <button>Путь</button>
+            </div>
+            <div class="result">
+                <div>
+                    <svg viewBox="0 0 500 270" width="500" height="270" >
+                        <line x1="10" y1="260" x2="490" y2="10"stroke="violet" stroke-width="10" />
+                    </svg>
+                </div>
+                <div>
+                    <svg viewBox="0 0 510 270" width="500" height="270">
+                        <rect width="500" height="260" x="5" y="5" fill="skyblue" stroke="steelblue" stroke-width="5" />
+                    </svg>
+                </div>
+                <div>
+                    <svg viewBox="0 0 270 270" width="500" height="270">
+                        <circle r="130" cx="135" cy="135"fill="orangered" stroke="crimson" stroke-width="5" />
+                    </svg>
+                </div>
+                <div>
+                    <svg viewBox="0 0 500 270" width="500" height="270">
+                        <ellipse rx="240" ry="130" cx="250" cy="135" fill="gold" stroke="orange" stroke-width="5" />
+                    </svg>
+                </div>
+                <div>
+                    <svg viewBox="0 0 140 130" width="500" height="270">
+                        <polygon points="70,5 90,41 136,48 103,80 111,126 70,105 29,126 36,80 5,48 48,41"
+                                 fill="turquoise" stroke="lightseagreen" stroke-width="3" />
+                    </svg>
+                </div>
+                <div>
+                    <svg height="270" viewBox="0 0 200 140">
+                        <path d="M 10,30 A 20,31 320 0 0 190,30" stroke="purple" stroke-width="3" fill="violet"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="code">
+                <div>
+					<pre>
+						<code class="html">&lt;svg viewBox="0 0 500 270" width="500" height="270"></code>
+						<code class="html">  &lt;line x1="10" y1="260" x2="490" y2="10" stroke="violet" stroke-width="10" /></code>
+						<code class="html">&lt;/svg></code>
+					</pre>
+                </div>
+                <div>
+					<pre>
+						<code class="html">&lt;svg viewBox="0 0 500 270" width="500" height="270"></code>
+						<code class="html">  &lt;rect width="500" height="260" x="5" y="5" fill="skyblue"
+        stroke="steelblue" stroke-width="5" /></code>
+						<code class="html">&lt;/svg></code>
+					</pre>
+                </div>
+                <div>
+					<pre>
+						<code class="html">&lt;svg viewBox="0 0 500 270" width="500" height="270"></code>
+						<code class="html">  &lt;circle r="130" cx="135" cy="135"fill="orangered" stroke="crimson"
+        stroke-width="5" /></code>
+						<code class="html">&lt;/svg></code>
+					</pre>
+                </div>
+                <div>
+					<pre>
+						<code class="html">&lt;svg viewBox="0 0 500 270" width="500" height="270"></code>
+						<code class="html">  &lt;ellipse rx="240" ry="130" cx="250" cy="135" fill="gold" stroke="orange"
+        stroke-width="5" /></code>
+						<code class="html">&lt;/svg></code>
+					</pre>
+                </div>
+                <div>
+					<pre>
+						<code class="html">&lt;svg viewBox="0 0 500 270" width="500" height="270"></code>
+						<code class="html">  &lt;polygon points="70,5 90,41 136,48 103,80 111,126 70,105 29,126 36,80 5,48"
+        fill="turquoise" stroke="lightseagreen" stroke-width="3" /></code>
+						<code class="html">&lt;/svg></code>
+					</pre>
+                </div>
+                <div>
+					<pre>
+						<code class="html">&lt;svg viewBox="0 0 500 270" height="270"></code>
+						<code class="html">  &lt;path d="M 10,30 A 20,31 320 0 0 190,30" stroke="purple" stroke-width="3"
+        fill="violet"/></code>
+						<code class="html">&lt;/svg></code>
+					</pre>
+                </div>
+            </div>
+        </div>
+        <a class="extra-link" href="http://css.yoksel.ru/svg-shapes/" target="_blank">SVG-фигуры и трансформации</a>
+    </div>
+</section>
+
+<section class="slide" id="svg-example-path-2">
+    <style>
+        #svg-example-path-2 li {
+            margin: 10px 0;
+        }
+    </style>
+    <div>
+        <h2>SVG: path</h2>
+        <ul>
+            <li>M, m — moveto</li>
+            <li>Z — closepath</li>
+            <li>L, l — lineto</li>
+            <li>H, h — horizontal lineto</li>
+            <li>V, v — vertical lineto</li>
+            <li>C, c — curveto</li>
+            <li>S, s — smooth curveto</li>
+            <li>Q, q — quadratic Bézier curveto</li>
+            <li>T, t — smooth quadratic Bézier curveto</li>
+            <li>A, a — elliptical arc</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="svg-clipping">
+    <div>
+        <h2>Обрезка</h2>
+        <pre>
+            <code class="html">&lt;clippath id="clip-star"></code>
+            <code class="html">  &lt;polygon points="98.499..." /></code>
+            <code class="html">&lt;/clippath></code>
+        </pre>
+
+        <pre>
+            <code class="css">clip-path: url(#clip-star);</code>
+        </pre>
+
+        <a class="extra-link" href="http://www.cssplant.com/clip-path-generator" target="_blank">Clip Path Generator</a>
+    </div>
+</section>
+
+<section class="slide" id="svg-masking">
+    <div>
+        <h2>Маски</h2>
+        <pre>
+			<code>&lt;mask id="mask"></code>
+			<code>  &lt;image xlink:href="your-image.png" width="200" height="300" /></code>
+			<code>&lt;/mask></code>
+		</pre>
+        <pre>
+			<code>mask: url(#mask);</code>
+		</pre>
+    </div>
+</section>
+
+
+<section class="slide cover  seventh" id="images-tools">
+    <div>
+        <h2>Инструменты для работы с изображениями</h2>
+    </div>
+</section>
+
+<section class="slide" id="images-tools-editors">
+    <div>
+        <h2>Редакторы</h2>
+        <p>Инструменты, которые позволяют создавать, редактировать и обрабатывать изображения</p>
+        <p>Наиболее популярные:</p>
+        <ul>
+            <li>Figma (для отрисовки простой векторной графики и интерфейсов)</li>
+            <li>Adobe Photoshop (растровые изображения, работа с фото)</li>
+            <li>Adobe Illustrator (векторные изображения и графика)</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="images-tools-converters">
+    <div>
+        <h2>Конверторы</h2>
+        <ul>
+            <li>Инструменты, которые позволяют конвертировать изображения из одного формата в другой</li>
+            <li>Базовые инструменты есть в Windows и Mac, и применяются при опции сохранения файла</li>
+            <li>Для работы из командной строки или на сервере — Imagemagick</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="images-tools-optimizers">
+    <div>
+        <h2>Оптимизаторы</h2>
+        <ul>
+            <li>Инструменты, которые позволяют оптимизировать изображения и уменьшать их размер (с потерей или без потери качества)</li>
+            <li>https://imageoptim.com/ — для Mac</li>
+            <li>https://squoosh.app/ – онлайн-инструмент для растровых изображений</li>
+            <li>https://jakearchibald.github.io/svgomg/ – онлайн-инструмент для работы с svg</li>
+            <li>https://github.com/svg/svgo/ – консольная утилита для svg</li>
+        </ul>
+    </div>
+</section>
+
+
+
+
+<!--  -->
+
+<!--  -->
+
+<!--  -->
 
 <section class="slide toc" id="css-features">
     <div>
@@ -911,6 +1382,71 @@
         </div>
     </div>
 </section>
+
+
+<section class="slide rebuild" id="svg-smil">
+    <style>
+        #svg-smil pre {
+            margin-bottom: 50px;
+        }
+    </style>
+    <div>
+        <h2>SMIL</h2>
+        <p><i>Synchronized Multimedia Integration Language</i></p>
+        <ul style="margin-top: 30px; margin-bottom: 50px">
+            <li>Анимация</li>
+            <li>Интерактивность</li>
+        </ul>
+        <pre>
+            <code class="html">&lt;rect width="250" height="250" ...></code>
+            <code class="html">  &lt;animate attributeName="width" from="0px" to="250px" dur="1s" begin="click" /></code>
+            <code class="html">  &lt;animate attributeName="height" from="0px" to="250px" dur="1s" begin="click" /></code>
+            <code class="html">&lt;/rect></code>
+        </pre>
+        <svg style="display: block; margin: 0 auto" viewBox="0 0 255 255" width="255" height="255">
+            <rect x="2" y="2" width="250" height="250" fill="#FCCD00" stroke-width="3" stroke="#5A50E2">
+                <animate attributeName="width" from="0px" to="250px" dur="1s" begin="click" />
+                <animate attributeName="height" from="0px" to="250px" dur="1s" begin="click" />
+            </rect>
+        </svg>
+        <a class="extra-link" href="https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_animation_with_SMIL" target="blank">SMIL Animation</a>
+    </div>
+</section>
+
+<section class="slide full-image" id="svg-smil-suppurts">
+    <img src="pictures/caniuse/svg-smil.png" alt="">
+</section>
+
+<section class="slide" id="svg-libs">
+    <div>
+        <h2>SVG Animations</h2>
+        <ul>
+            <li><a href="http://dmitrybaranovskiy.github.io/raphael/" target="_blank">Raphaël</a></li>
+            <li><a href="http://snapsvg.io/" target="_blank">Snap.svg</a></li>
+            <li><a href="http://d3js.org/" target="_blank">D3.js</a></li>
+            <li><a href="https://greensock.com/" target="_blank">GSAP</a></li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide rebuild" id="svg-examples">
+    <div>
+        <h2>SVG</h2>
+        <ul>
+            <li><a href="http://yoksel.github.io/about-svg/" target="_blank">Позвольте представить: SVG</a></li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide full-image" id="svg-morphing">
+    <style>
+        #svg-morphing video {
+            height: 100%;
+        }
+    </style>
+    <video src="pictures/yaru.mp4" pip="false" loop></video>
+</section>
+
 
 <section class="slide" id="animations-js">
     <div>

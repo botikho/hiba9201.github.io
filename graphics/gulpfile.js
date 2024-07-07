@@ -17,10 +17,11 @@ gulp.task('prepare', () => {
             '!CONTRIBUTING.md',
             '!LICENSE.md',
             '!README.md',
+            '!bun.lockb',
             '!gulpfile.js',
             '!netlify.toml',
             '!package.json',
-            '!package-lock.json'
+            '!package-lock.json',
         ])
         .pipe(replace(
             /(<link rel="stylesheet" href=")(node_modules\/shower-)([^\/]*)\/(.*\.css">)/g,
